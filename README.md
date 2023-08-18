@@ -1,2 +1,2 @@
-# CapBook
+# SafeMangaRead
 Indexação de Manga/Novel

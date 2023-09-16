@@ -18,17 +18,16 @@ namespace UsuarioAPI.Models
 
         
         [DataMember]
-        public string UsuarioCargo { get; set; } = "";
+        public DateTime UsuarioNascimento { get; set; } = default;
 
         
         [DataMember]
-        public string UsuarioLogin { get; set; } = "";
+        public string UsuarioEmail { get; set; } = "";
 
 
         
         [DataMember]
         public string UsuarioSenha { get; set; } = "";
-
 
 
 

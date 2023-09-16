@@ -4,6 +4,7 @@ using MangaNovelsAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clinivet1.Migrations
 {
     [DbContext(typeof(APIdbcontext))]
-    partial class APIdbcontextModelSnapshot : ModelSnapshot
+    [Migration("20230916010513_painosso")]
+    partial class painosso
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,6 +164,10 @@ namespace Clinivet1.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UsuarioSenha")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("testeeeeadawdawdadsdd")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -64,8 +64,8 @@ namespace Clinivet1.Migrations
                     UsuarioId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UsuarioName = table.Column<string>(type: "nvarchar(250)", nullable: false),
-                    UsuarioCargo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UsuarioLogin = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UsuarioNascimento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UsuarioEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UsuarioSenha = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

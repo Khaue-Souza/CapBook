@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/QEBUQuM+1XHd0hA0ihpd9WE6z+WhY1Kl6IcneE9eG8ns/B0i4UV339JhkAsMuwY559z0uR8LX+gxgta8vVyyA==",
+  "dgSpecHash": "UpG2xb4BRL6MebCUGylQ0gNupozn5Xof9FwtlXm0JJyvaEM1gsnAC6kPzK/LHgvOGY0f7FPmzk9YWcR+8CF59g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\khaue\\OneDrive\\Área de Trabalho\\ProjetoSafeMangaRead\\CliniVet-main\\Backend\\Clinivet1\\Clinivet1.csproj",
+  "projectFilePath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\Clinivet1\\Clinivet1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\khaue\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\khaue\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

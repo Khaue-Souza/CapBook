@@ -85,7 +85,7 @@ namespace SafeMangaRead.Controllers
           {
               return Problem("Entity set 'APIdbcontext.usuarios'  is null.");
           }
-            var userContext = await _context.usuarios.FirstOrDefaultAsync(t => t.UsuarioLogin == usuario.UsuarioLogin && t.UsuarioSenha == usuario.UsuarioSenha);
+            var userContext = await _context.usuarios.FirstOrDefaultAsync(t => t.UsuarioEmail == usuario.UsuarioEmail && t.UsuarioSenha == usuario.UsuarioSenha);
 
             if (userContext != null)
 

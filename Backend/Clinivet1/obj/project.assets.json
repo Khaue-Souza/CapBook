@@ -10198,11 +10198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\khaue\\OneDrive\\Área de Trabalho\\ProjetoSafeMangaRead\\CliniVet-main\\Backend\\Clinivet1\\Clinivet1.csproj",
+      "projectUniqueName": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\Clinivet1\\Clinivet1.csproj",
       "projectName": "Clinivet1",
-      "projectPath": "C:\\Users\\khaue\\OneDrive\\Área de Trabalho\\ProjetoSafeMangaRead\\CliniVet-main\\Backend\\Clinivet1\\Clinivet1.csproj",
+      "projectPath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\Clinivet1\\Clinivet1.csproj",
       "packagesPath": "C:\\Users\\khaue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\khaue\\OneDrive\\Área de Trabalho\\ProjetoSafeMangaRead\\CliniVet-main\\Backend\\Clinivet1\\obj\\",
+      "outputPath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\Clinivet1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\khaue\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -3367,11 +3367,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\khaue\\OneDrive\\Área de Trabalho\\Pasta Projeto 05102023\\SafeMangaRead\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
+      "projectUniqueName": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
       "projectName": "SafeMangaRead.Api",
-      "projectPath": "C:\\Users\\khaue\\OneDrive\\Área de Trabalho\\Pasta Projeto 05102023\\SafeMangaRead\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
+      "projectPath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
       "packagesPath": "C:\\Users\\khaue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\khaue\\OneDrive\\Área de Trabalho\\Pasta Projeto 05102023\\SafeMangaRead\\SafeMangaRead\\SafeMangaRead.Api\\obj\\",
+      "outputPath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\khaue\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3442,7 +3442,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

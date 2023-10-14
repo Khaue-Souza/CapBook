@@ -49,9 +49,6 @@ namespace MangasAPI.Models
         [DataMember]
         public string AlternateNames { get; set; } = "";
 
-        [DataMember]
-        public string testemigration { get; set; } = "";
-
 
     }
 }

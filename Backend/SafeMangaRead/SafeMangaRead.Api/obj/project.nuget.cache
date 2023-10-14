@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zg5XZVajxX0xe9kIsstIxDK1ZKMCDYvz5Ux4pXDRaDVMgTY6cu1JSz7zXPox9bxTAZxizkluHzRnOQBQze26VA==",
+  "dgSpecHash": "6oBVZPoKCUpxOVb05kVE0osemPyka8rEfE7bSIc+3sNxrhtaKfLAL8gZsAfxJeg19XtJr0jmm0r/ltZ+x/cKfw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\khaue\\OneDrive\\Área de Trabalho\\Pasta Projeto 05102023\\SafeMangaRead\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
+  "projectFilePath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\khaue\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\khaue\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SafeMangaRead</title>
+  <link href="/Front/public/CSS/cadastro.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script type="text/javascript" src="../JS/cadastro.js"></script>
+</head>
+
+<body style="background-color: #009373;">
+  <div class="divMae">
+
+    <!-- Menu lateral -->
+    <div class="menuLateral">
+      <a href="login.html" style="text-decoration: none"> <button>Login</button></a>
+      <a href="cadastro.html" style="text-decoration: none;"><button>Cadastro</button></a>
+      <a href="clientesLista.html" style="text-decoration: none;"><button>Clientes</button></a>
+      <a href="usuario.html" style="text-decoration: none;"><button>Usuário</button></a>
+    </div>
+
+    <!-- Div criada apenas para dar espaçamento -->
+    <div class="col-sm-1 col-md-1 col-lg- 1"></div>
+
+    <!-- Menu meio -->
+    <div class="organizaMenu col-sm-8 col-md-8 col-lg-8">
+
+      <div style=" width: 100%; height: 100%;">
+        <br>
+        <h1 class="titulo">Cadastro</h1>
+
+        <div class="divCenter">
+
+          <!-- Campos do Tutor -->
+          <h2>Tutor</h2>
+
+          <div class="divContato">
+            <div class="inputLabel col-sm-2 col-md-2 col-lg-2">
+              <input type="text" id="cod" placeholder="Código" class="mb-1" disabled>
+            </div>
+
+            <div class="col-12 form alinha">
+              <div class="inputLabel col-sm-3 col-md-3 col-lg-3">
+                <Label>Nome</Label>
+                <!-- onChangeCampos: Comando que salva o valor do campo numa vaviável ao mudar o valor interno -->
+                <input type="text" id="nomeTutor" onchange="onChangeCampos()" placeholder="Jeferson Dias" class="mb-1" required>
+              </div>
+
+              <div class="inputLabel col-sm-3 col-md-3 col-lg-3">
+                <Label>CPF</Label>
+                <input type="text" id="CPFTutor" onchange="onChangeCampos()" placeholder="CPF" class="mb-1">
+              </div>
+
+              <div class="inputLabel col-sm-3 col-md-3 col-lg-3">
+                <Label>Contato</Label>
+                <input type="tel" id="ContatoTutor" onchange="onChangeCampos()" placeholder="(47) 3464-4123"
+                  class="mb-1">
+              </div>
+
+              <div class="col-sm-1 col-md-1 col-lg- 1"></div>
+
+              <div class="inputLabel col-sm-3 col-md-3 col-lg-3">
+                <Label>Cep</Label>
+                <!-- onfocusout: Comando que dispara ao perder o foco do campo (esta chamando a API de cep) -->
+                <input id="CepTutor" onfocusout="cep()" onchange="onChangeCampos()" type="text" placeholder="89226-110"
+                  class="mb-1">
+              </div>
+
+              <div class="inputLabel col-sm-3 col-md-3 col-lg-3">
+                <Label>Endereço</Label>
+                <input id="EnderecoTutor" type="text" onchange="onChangeCampos()"
+                  placeholder="Rua Pica-Pau, Aventureiro" class="mb-1">
+              </div>
+
+              <div class="inputLabel col-sm-3 col-md-3 col-lg-3">
+                <Label>Número</Label>
+                <input type="text" id="numeroTutor" onchange="onChangeCampos()" placeholder="142" class="mb-1">
+              </div>
+
+              <div class="col-sm-1 col-md-1 col-lg- 1"></div>
+
+              <div class="inputLabel col-sm-3 col-md-3 col-lg-3">
+                <Label>Cidade</Label>
+                <input id="cidadeTutor" type="text" onchange="onChangeCampos()" placeholder="Joinville - SC"
+                  class="mb-1">
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <br>
+          <!-- Apenas para mostrar a mensagem de OK quando salvar -->
+          <div id="divSpan" class="spanDiv">
+          </div>
+
+          <!-- Botão de Salvar -->
+          <div class="submit">
+            <input type="button" onclick="submit()" value="Salvar" class="submit btn btn-success"
+              style=" border:1px solid black; margin-top: 5%;">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

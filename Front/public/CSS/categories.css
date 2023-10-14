@@ -1,0 +1,19 @@
+/* CSS para a página de categorias */
+/* Adicione estilos apropriados para o design da página de categorias */
+/* Por exemplo, estilos para a lista de categorias e links */
+.category-list {
+    list-style: none;
+    padding: 0;
+}
+
+.category-list li {
+    margin-bottom: 10px;
+}
+
+.category-list a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Adicione outros estilos conforme necessário */

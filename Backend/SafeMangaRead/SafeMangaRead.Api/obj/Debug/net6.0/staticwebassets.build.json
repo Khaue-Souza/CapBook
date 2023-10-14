@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "fEsjj4CD/Jvr2l46mkU79MMnUWSk8+sS3meIZrFmKC8=",
+  "Source": "SafeMangaRead.Api",
+  "BasePath": "_content/SafeMangaRead.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

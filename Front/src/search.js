@@ -1,50 +1,23 @@
-// Pega o termo de pesquisa da URL
-const urlParams = new URLSearchParams(window.location.search);
-const searchTerm = urlParams.get('q');
-
-// Chama a função de pesquisa se houver um termo de pesquisa
-if (searchTerm) {
-    document.getElementById('searchInput').value = searchTerm;
-    searchManga();
-}
-
 async function searchManga() {
     const searchTerm = document.getElementById('searchInput').value;
     if (!searchTerm) return;
 
-    const query = {
-        query: `
-            query ($search: String) {
-                Page {
-                media(search: $search, type: MANGA) {
-                    id
-                    title {
-                    romaji
-                    }
-                    coverImage {
-                    large
-                    }
-                    genres
-                }
-                }
-            }`,
-        variables: { search: searchTerm }
-    };
 
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(query)
-    };
+    // Atualiza a URL sem recarregar a página
+    history.replaceState(null, '', `?q=${encodeURIComponent(searchTerm)}`);
 
     try {
-        const response = await fetch('https://graphql.anilist.co', requestOptions);
+        const response = await fetch(`http://localhost:5114/api/Anilist/search/${searchTerm}`);
         const data = await response.json();
+
+        if (!data || !data.data || !data.data.Page || !data.data.Page.media) {
+            console.error('Resposta inesperada:', data);
+            return;
+        }
 
         displayResults(data.data.Page.media);  // Ajustando para capturar a lista correta de mangás
     } catch (error) {
         console.error('Error fetching data:', error);
-
     }
 }
 
@@ -59,7 +32,7 @@ function displayResults(mediaList) {
 
             const mangaElement = `
                 <div>
-                    <a href="mangaDetails.html?id=${media.id}">  <!-- Adicione este link -->
+                    <a href="mangaDetails2.html?id=${media.id}">  <!-- Adicione este link -->
                         <img src="${media.coverImage.large}" alt="${media.title.romaji}" width="150">
                         <h3>${media.title.romaji}</h3>
                     </a>
@@ -83,4 +56,3 @@ document.addEventListener("DOMContentLoaded", function () {
         searchManga();
     }
 });
-

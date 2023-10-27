@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Mangá</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+</head>
+<body>
+
+<main class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img id="cover-image" src="" alt="Capa do mangá" class="img-fluid rounded">
+        </div>
+       
+        <div class="col-md-8">
+            <h1 id="title-romaji"></h1>
+            <h2 id="title-english"></h2>
+            <p id="description"></p>
+        </div>
+        <div class="col-md-12">
+            <!-- Botão que aciona a modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mangaModal">
+              Adicionar à Lista de Leitura
+            </button>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12" id="additional-info">
+        </div>
+    </div>
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="mangaModal" tabindex="-1" role="dialog" aria-labelledby="mangaModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="" id="modal-image" alt="Manga Cover"> 
+        <h5 class="modal-title" id="modal-title" >Nome do Manga</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2>Adicionar à Lista de Leitura</h2>
+        <label>Status do Mangá:</label>
+        <select id="status-manga">
+            <option value="Reading">Lendo</option>
+            <option value="PlantoRead">Planejo Ler</option>
+            <option value="Completed">Completo</option>
+            <option value="Rereading">Relendo</option>
+            <option value="Paused">Pausado</option>
+            <option value="Dropped">Dropei</option>
+        </select>
+        <br>
+        <label>Progresso do Capítulo:</label>
+        <input type="number" id="progresso-capitulo" min="1" placeholder="Capítulo atual">
+        <br>
+        <label>Data de Início:</label>
+        <input type="date" id="data-inicio">
+        <br>
+        <label>Data de Conclusão:</label>
+        <input type="date" id="data-conclusao">
+        <br>
+        <label>Notas:</label>
+        <textarea id="notas" placeholder="Escreva suas notas aqui..."></textarea>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button  id="save-button" type="button" class="btn btn-primary" onclick="addMangaToList()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/src/mangaDetails2.js"></script>
+<script src="/src/checkLoginStatus.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

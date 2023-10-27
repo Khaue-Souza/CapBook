@@ -2,6 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using MangaNovelsAPI.Models;
 using UsuarioAPI.Models;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using ListaDeLeituraApi.Models;
 
 namespace SafeMangaRead.Controllers
 {
@@ -16,25 +24,23 @@ namespace SafeMangaRead.Controllers
             _context = context;
         }
 
-        // GET: api/Usuarios
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> Getusuarios()
         {
-          if (_context.usuarios == null)
-          {
-              return NotFound();
-          }
+            if (_context.usuarios == null)
+            {
+                return NotFound();
+            }
             return await _context.usuarios.ToListAsync();
         }
 
-        // GET: api/usuarios/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
-          if (_context.usuarios == null)
-          {
-              return NotFound();
-          }
+            if (_context.usuarios == null)
+            {
+                return NotFound();
+            }
             var usuario = await _context.usuarios.FindAsync(id);
 
             if (usuario == null)
@@ -45,8 +51,6 @@ namespace SafeMangaRead.Controllers
             return usuario;
         }
 
-        // PUT: api/Usuarios/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<ActionResult> PutUsuario(int id, Usuario usuario)
         {
@@ -76,31 +80,6 @@ namespace SafeMangaRead.Controllers
             return NoContent();
         }
 
-        // POST: api/Usuarios
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost("/login")]
-        public async Task<ActionResult<Usuario>> PostUsuarioC(Usuario usuario)
-        {
-          if (_context.usuarios == null)
-          {
-              return Problem("Entity set 'APIdbcontext.usuarios'  is null.");
-          }
-            var userContext = await _context.usuarios.FirstOrDefaultAsync(t => t.UsuarioEmail == usuario.UsuarioEmail && t.UsuarioSenha == usuario.UsuarioSenha);
-
-            if (userContext != null)
-
-            {
-
-                return Ok(new { status = 200, isSuccess = true, message = "Login efetuado com sucesso!" });
-            }
-            else
-            {
-                return Ok(new { status = 401, isSuccess = false, message = "Login ou senha incorretos!", });
-            }
-        }
-
-        // POST: api/Usuario
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
@@ -114,8 +93,6 @@ namespace SafeMangaRead.Controllers
             return CreatedAtAction("GetUsuario", new { id = usuario.UsuarioId }, usuario);
         }
 
-
-        // DELETE: api/Usuarios/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
@@ -139,5 +116,44 @@ namespace SafeMangaRead.Controllers
         {
             return (_context.usuarios?.Any(e => e.UsuarioId == id)).GetValueOrDefault();
         }
+
+        private string GenerateJwtToken(Usuario usuario)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = System.Text.Encoding.ASCII.GetBytes("your-very-long-and-secure-key-here");
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, usuario.UsuarioEmail)
+                }),
+                Expires = DateTime.UtcNow.AddHours(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
+
+        [HttpPost("/login")]
+        public async Task<ActionResult> PostUsuarioC(Usuario usuario)
+        {
+            var userContext = await _context.usuarios.FirstOrDefaultAsync(t => t.UsuarioEmail == usuario.UsuarioEmail 
+            && t.UsuarioSenha == usuario.UsuarioSenha);
+
+            if (userContext != null)
+            {
+                var token = GenerateJwtToken(userContext);
+                return Ok(new { status = 200, isSuccess = true, message = "Login efetuado com sucesso!", token, userContext.UsuarioId });
+            }
+            else
+            {
+                // Alterando de Ok para Unauthorized
+                return Unauthorized(new { status = 401, isSuccess = false, message = "Login ou senha incorretos!" });
+            }
+        }
+
+
+
+
     }
 }

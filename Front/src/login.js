@@ -1,36 +1,42 @@
-// Função que confere a validação de login
 async function confere() {
+  let loginEmail = document.getElementById('login').value;
+  let senhaUsuario = document.getElementById('senha').value;
+  console.log(loginEmail, senhaUsuario)
 
-    // pega os valores dos campos
-    let loginEmail = document.getElementById('login').value;
-    let senhaUsuario = document.getElementById('senha').value;
-
-    const data = {
-      UsuarioEmail: loginEmail, UsuarioSenha: senhaUsuario
-    };
-    
-    // fetch faz s solicitação em modo POST para verificar
-    await fetch("http://localhost:5114/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-        // caso retorne status 200(OK), ele redireciona
-        if(data.status == 200)
-          window.location.href = 'Manga.html'
-        // Se não dispara um alerta que está errado
-        else
-          alert('Usuário ou senha incorretos!')
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      })
   
-  }
 
-  reincarnation of the strongest sword god
+  const data = {
+      UsuarioEmail: loginEmail, UsuarioSenha: senhaUsuario
+  };
+  
+  try {
+      const response = await fetch("http://localhost:5114/login", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+      });
+
+      // Verifique o status da resposta
+      if (response.status !== 200) {
+          alert('Usuário ou senha incorretos!');
+          return;
+      }
+
+      const responseData = await response.json();
+
+    
+      // Supondo que o servidor retorne um token quando o login for bem-sucedido
+      if (responseData.token && responseData.usuarioId) {
+          localStorage.setItem('userToken', responseData.token);
+          localStorage.setItem('usuarioId', responseData.usuarioId);
+          window.location.href = 'inicio.html';
+      } else {
+          alert('Ocorreu um erro durante o login. Por favor, tente novamente.');
+      }
+  } catch (error) {
+      console.error("Error:", error);
+      alert('Ocorreu um erro durante o login. Por favor, tente novamente.');
+  }
+}

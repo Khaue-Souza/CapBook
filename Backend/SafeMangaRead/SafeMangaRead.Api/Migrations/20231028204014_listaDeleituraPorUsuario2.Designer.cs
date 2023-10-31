@@ -4,6 +4,7 @@ using MangaNovelsAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SafeMangaRead.Api.Migrations
 {
     [DbContext(typeof(APIdbcontext))]
-    partial class APIdbcontextModelSnapshot : ModelSnapshot
+    [Migration("20231028204014_listaDeleituraPorUsuario2")]
+    partial class listaDeleituraPorUsuario2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,7 +33,7 @@ namespace SafeMangaRead.Api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ListaDeLeituraId"));
 
-                    b.Property<DateTime?>("DataConclusao")
+                    b.Property<DateTime>("DataConclusao")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DataInicio")

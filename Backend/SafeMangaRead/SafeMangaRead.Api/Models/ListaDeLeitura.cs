@@ -13,10 +13,11 @@ namespace ListaDeLeituraApi.Models
 
         public int MangaId { get; set; }
 
+        public string NomeManga { get; set; } = "";
         public string StatusManga { get; set; } = "";  
         public int ProgressoCapitulo { get; set; }
         public DateTime? DataInicio { get; set; }
-        public DateTime? DataConclusao { get; set; }
+        public DateTime? DataConclusao { get; set; } 
         public string Notas { get; set; } = "";
 
 

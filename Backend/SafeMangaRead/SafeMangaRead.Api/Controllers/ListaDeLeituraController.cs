@@ -115,6 +115,29 @@ namespace SafeMangaRead.Controllers
 
 
 
+        [HttpGet("usuario/{usuarioId}")]
+        public async Task<ActionResult<IEnumerable<ListaDeLeitura>>> GetListasPorUsuario(int usuarioId)
+        {
+            if (_context.listasDeLeitura == null)
+            {
+                return NotFound();
+            }
+
+            var listas = await _context.listasDeLeitura
+                                       .Where(l => l.UsuarioId == usuarioId)
+                                       .ToListAsync();
+
+            if (listas == null || listas.Count == 0)
+            {
+                return NotFound("Nenhuma lista de leitura encontrada para o usuário especificado.");
+            }
+
+            return listas;
+        }
+
+
+
+
 
     }
 }

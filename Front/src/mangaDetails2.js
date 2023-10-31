@@ -13,13 +13,9 @@ function closeModal() {
 }
 
 
-
-
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 const mangaId = id;
-
-
 
 
 
@@ -29,6 +25,7 @@ async function fetchDetails() {
     
     const media = data.data.Media;
     console.log(mangaId)
+    nomeMangaGlobal = media.title.romaji;
     
     document.getElementById('cover-image').src = media.coverImage.large;
     document.getElementById('title-romaji').textContent = media.title.romaji;
@@ -57,11 +54,17 @@ async function fetchDetails() {
 
 async function addMangaToList() {
 
+        const nomeManga = nomeMangaGlobal
+        console.log(nomeManga)
         const statusManga = document.getElementById('status-manga').value;
         const progressoCapitulo = document.getElementById('progresso-capitulo').value;
         const dataInicio = document.getElementById('data-inicio').value;
         const dataConclusao = document.getElementById('data-conclusao').value;
         const notas = document.getElementById('notas').value;
+
+
+        console.log(dataConclusao)
+
     
     const userToken = localStorage.getItem('userToken');
     const usuarioId = localStorage.getItem('usuarioId');
@@ -73,12 +76,17 @@ async function addMangaToList() {
     const listaDeLeitura = {
         UsuarioId: usuarioId,  
         MangaId: mangaId,
+        nomeManga: nomeManga,
         StatusManga: statusManga,
         ProgressoCapitulo: progressoCapitulo,
         DataInicio: dataInicio,
         DataConclusao: dataConclusao,
         Notas: notas
     };
+    
+    if (!listaDeLeitura.DataConclusao) {
+        delete listaDeLeitura.DataConclusao;
+    }
 
 
     await fetch("http://localhost:5114/api/ListaDeLeitura/addManga", {
@@ -112,3 +120,9 @@ async function addMangaToList() {
 }
 
 document.addEventListener("DOMContentLoaded", fetchDetails);
+
+document.addEventListener("DOMContentLoaded", function() {
+    var dataAtual = new Date();
+    var dataFormatada = dataAtual.toISOString().substr(0, 10); // Formata a data para 'yyyy-mm-dd'
+    document.getElementById("data-inicio").value = dataFormatada;
+});

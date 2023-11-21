@@ -58,7 +58,7 @@
             <div class="filter-group">
               <h3>Filtros</h3>
               <select id="format-filter" onchange="applyFilters()">
-                <option value="" disabled selected>Formato</option>
+                <option value="" disabled selected hidden>Formato</option>
                 <option value="manga">Manga</option>
                 <option value="novel">Novel</option>
                 <option value="one_shot">ONE_SHOT</option>
@@ -67,7 +67,7 @@
                
               </select>
               <select id="country-filter" onchange="applyFilters()">
-                <option value="" disabled selected>Origem</option>
+                <option value="" disabled selected hidden>Origem</option>
                 <option value="jp">Japan</option>
                 <option value="kr">Korea</option>
                 <option value="tw">Taiwan</option>
@@ -176,6 +176,5 @@
         <script src="/src/search.js"></script>
         <script src="/src/checkLoginStatus.js"></script>
         <script src="/src/listaDeLeitura.js"></script>
-        <script src="/src/mangaDetails2.js"></script>
 </body>
 </html>

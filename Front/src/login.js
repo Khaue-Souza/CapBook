@@ -40,3 +40,7 @@ async function confere() {
       alert('Ocorreu um erro durante o login. Por favor, tente novamente.');
   }
 }
+
+function usuario(){
+    window.location.href = '../views/usuario.html'
+}

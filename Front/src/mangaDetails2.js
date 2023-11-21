@@ -32,7 +32,7 @@ const usuarioId = localStorage.getItem('usuarioId');
 
 var globalMangaId = mangaId; 
 var globalUsuarioId = localStorage.getItem('usuarioId');
-let mediaGlobal; // Esta variável irá armazenar os detalhes do mangá
+let mediaGlobal; 
 console.log(usuarioId, id)
 
 function formatValue(value, isPercentage = false) {

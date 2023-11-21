@@ -1,10 +1,15 @@
 body {
-  background-color: #009373;
+  background-color: #333;
 }
 
-input {
+.inputLogin {
+  display: flex;
+  flex-direction: row;
   padding: 5px;
   border-radius: 5px;
+  border-radius: 5px;
+  justify-content: space-between;
+  
 }
 
 .divMae {
@@ -43,8 +48,4 @@ input {
   flex-direction: column;
   margin-bottom: 5%;
   padding: 10px;
-}
-
-input {
-  border-radius: 5px;
 }

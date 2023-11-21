@@ -43,15 +43,28 @@ namespace SafeMangaRead.Controllers
             return listasDeLeitura;
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult> PutListaDeLeitura(int id, ListaDeLeitura listasDeLeitura)
+        [HttpPut]
+        public async Task<IActionResult> PutListaDeLeitura(ListaDeLeitura listaDeLeitura)
         {
-            if (id != listasDeLeitura.ListaDeLeituraId)
-            {
-                return BadRequest();
-            }
+            var registroExistente = await _context.listasDeLeitura
+                .FirstOrDefaultAsync(l => l.UsuarioId == listaDeLeitura.UsuarioId && l.MangaId == listaDeLeitura.MangaId);
 
-            _context.Entry(listasDeLeitura).State = EntityState.Modified;
+            listaDeLeitura.StatusManga = string.IsNullOrEmpty(listaDeLeitura.StatusManga) ? "Lendo" : listaDeLeitura.StatusManga;
+
+            if (registroExistente == null)
+            {
+                _context.listasDeLeitura.Add(listaDeLeitura);
+            }
+            else
+            {
+                // Atualiza o registro existente
+                registroExistente.NomeMangaRomaji = listaDeLeitura.NomeMangaRomaji;
+                registroExistente.StatusManga = listaDeLeitura.StatusManga;
+                registroExistente.ProgressoCapitulo = listaDeLeitura.ProgressoCapitulo;
+                registroExistente.DataInicio = listaDeLeitura.DataInicio;
+                registroExistente.DataConclusao = listaDeLeitura.DataConclusao;
+                registroExistente.Notas = listaDeLeitura.Notas;
+            }
 
             try
             {
@@ -59,7 +72,7 @@ namespace SafeMangaRead.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ListaDeLeituraExists(id))
+                if (!_context.listasDeLeitura.Any(e => e.UsuarioId == listaDeLeitura.UsuarioId && e.MangaId == listaDeLeitura.MangaId))
                 {
                     return NotFound();
                 }
@@ -72,24 +85,24 @@ namespace SafeMangaRead.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteListaDeLeitura(int id)
+
+        [HttpDelete("usuario/{usuarioId}/manga/{mangaId}")]
+        public async Task<IActionResult> DeleteMangaFromUserList(int usuarioId, int mangaId)
         {
-            if (_context.listasDeLeitura == null)
-            {
-                return NotFound();
-            }
-            var listasDeLeitura = await _context.listasDeLeitura.FindAsync(id);
-            if (listasDeLeitura == null)
+            var listaDeLeitura = await _context.listasDeLeitura
+                .FirstOrDefaultAsync(l => l.UsuarioId == usuarioId && l.MangaId == mangaId);
+
+            if (listaDeLeitura == null)
             {
                 return NotFound();
             }
 
-            _context.listasDeLeitura.Remove(listasDeLeitura);
+            _context.listasDeLeitura.Remove(listaDeLeitura);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
+
 
         private bool ListaDeLeituraExists(int id)
         {
@@ -135,6 +148,28 @@ namespace SafeMangaRead.Controllers
             return listas;
         }
 
+
+
+        [HttpGet("usuario/{usuarioId}/manga/{mangaId}")]
+        public async Task<IActionResult> MangaNaListaDeLeitura(int usuarioId, int mangaId)
+        {
+            var mangaNaLista = await _context.listasDeLeitura
+                                             .FirstOrDefaultAsync(m => m.UsuarioId == usuarioId && m.MangaId == mangaId);
+
+            if (mangaNaLista == null)
+            {
+                
+                return Ok(new ListaDeLeitura
+                {
+                    UsuarioId = usuarioId,
+                    MangaId = mangaId,
+                   
+                  
+                });
+            }
+
+            return Ok(mangaNaLista);
+        }
 
 
 

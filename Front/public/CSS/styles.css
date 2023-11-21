@@ -1,15 +1,15 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
 header, footer {
-    background-color: #2E51A2;
-    color: #fff;
+    background-color: #333;
+    color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 1rem 0;
 }
 
 main {
@@ -20,102 +20,31 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#manga-details {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-}
-
-#manga-details img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#manga-details div {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#manga-details strong {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-body {
-    background-color: #f0f0f0;
-}
-
-main {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#cover-image {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#title-romaji, #title-english {
-    color: #333;
-}
-
-#description {
-    color: #666;
-}
-
-
-.col-md-4 {
-    flex: 0 0 25%;
-    max-width: 33.333333%;
-}
-
-.modal-header {
-    align-items: center;
-}
-.modal-header img {
-    max-width: 50px;
-    margin-right: 15px;
-}
-.custom-select, .form-control {
-    border-radius: 0;
-}
-
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #666;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
 ul {
     list-style-type: none;
     padding: 0;
 }
 
+li:hover {
+    background-color: #666; 
+}
+
+nav a {
+    color: white;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.menu-item {
+    border: none;
+}
+
+
 li {
-    background-color: #333333;
+    background-color: #f0f0f0;
     color: #333;
     padding: 10px;
     margin-bottom: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-li:nth-child(odd) {
-    background-color: #333333;
-}
-
-li:hover {
-    background-color: #f0f0f0;
-}

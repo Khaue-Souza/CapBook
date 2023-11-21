@@ -86,6 +86,7 @@ namespace SafeMangaRead.Controllers
                         coverImage {
                             large
                         }
+                        bannerImage
                         format
                         chapters
                         volumes
@@ -104,9 +105,11 @@ namespace SafeMangaRead.Controllers
                         meanScore
                         popularity
                         favourites
-                        source
                         genres
                         synonyms
+                        countryOfOrigin
+                        source
+                        
                     }
                 }";
 

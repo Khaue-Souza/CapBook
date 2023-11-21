@@ -4,6 +4,7 @@ using MangaNovelsAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SafeMangaRead.Api.Migrations
 {
     [DbContext(typeof(APIdbcontext))]
-    partial class APIdbcontextModelSnapshot : ModelSnapshot
+    [Migration("20231114045433_atualizandoTabelaDeLeitura5")]
+    partial class atualizandoTabelaDeLeitura5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,10 +46,6 @@ namespace SafeMangaRead.Api.Migrations
                     b.Property<DateTime?>("DataInicio")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FormatoManga")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Generos")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -58,15 +57,15 @@ namespace SafeMangaRead.Api.Migrations
                     b.Property<int>("MangaId")
                         .HasColumnType("int");
 
+                    b.Property<string>("NomeManga")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NomeMangaEnglish")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NomeMangaNative")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NomeMangaRomaji")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

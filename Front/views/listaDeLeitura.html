@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reading List</title>
-    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <title>Lista De Leitura</title>
+    <link rel="stylesheet" href="/public/CSS/unificado.css">
+    <link rel="stylesheet" href="/public/CSS/listaDeLeitura.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/public/CSS/searchInput.css">
    
 
 </head>
@@ -12,14 +16,14 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#">Início</a></li>
+                <li><a href="/views/inicio.html">Início</a></li>
                 <li><a href="#">Mangás</a></li>
                 <form action="/views/search.html" method="GET">
                     <div class="search">
                         <div class="search-box">
                             <div class="search-field">
                                 <input placeholder="Search..." id="searchInput" name="q" class="input" type="text">
-                                <div class="search-box-icon" onclick="inserir()">
+                                <div class="search-box-icon" onclick="fetchData()">
                                     <button class="btn-icon-content">
                                         <i class="search-icon">
                                             <svg xmlns="://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
@@ -38,14 +42,140 @@
         </nav>
     </header>
     <header>
-        <h2>Reading List</h2>
+        <h2>Lista De Leitura</h2>
     </header>
 
-    <main>
-        <ul id="listaMangas">
-        </ul>
-    </main>
 
-    <script src="/src/listaDeLeitura.js"></script>
+<main>
+    <div class="container">
+        <aside class="filters-panel">
+            <input type="search" id="filter-input" placeholder="Filter" oninput="applyFilters()">
+            <div class="filter-group">
+              <h3>Lista Por Status</h3>
+              <select id="status-filter">
+              </select>
+            </div>
+            <div class="filter-group">
+              <h3>Filtros</h3>
+              <select id="format-filter" onchange="applyFilters()">
+                <option value="" disabled selected>Formato</option>
+                <option value="manga">Manga</option>
+                <option value="novel">Novel</option>
+                <option value="one_shot">ONE_SHOT</option>
+              </select>
+              <select id="genres-filter" onchange="applyFilters()" multiple>
+               
+              </select>
+              <select id="country-filter" onchange="applyFilters()">
+                <option value="" disabled selected>Origem</option>
+                <option value="jp">Japan</option>
+                <option value="kr">Korea</option>
+                <option value="tw">Taiwan</option>
+              </select>
+            </div>
+          </aside>
+          
+      
+        <section class="manga-list">
+            <div id="status-container"></div>
+            <div id="filter-buttons-container"></div>
+        </section>
+      </div>    
+    <div  class="reading-list">        
+    </div>
+        
+        
+        <!-- Modal -->
+        <div class="modal fade" id="mangaModal" tabindex="-1" role="dialog" aria-labelledby="mangaModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document"> <!-- 'modal-lg' para uma modal mais larga -->
+            <div class="modal-content">
+                <div class="modal-header">
+                <img src="" id="modal-image" alt="Manga Cover" class="img-fluid"> <!-- 'img-fluid' para responsividade -->
+                <h5 class="modal-title custom-modal-title" id="modal-title">Nome do Manga</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <div class="form-row"> <!-- 'form-row' para agrupar os campos -->
+                    <div class="col-md-6 form-group"> <!-- 'col-md-6' para ocupar metade da largura em telas médias para cima -->
+                    <label for="status-manga">Status do Mangá:</label>
+                    <select id="status-manga" class="form-control"> <!-- 'form-control' para estilização do Bootstrap -->
+                        <option value="Lendo">Lendo</option>
+                        <option value="Planejo Ler">Planejo Ler</option>
+                        <option value="Completo">Completo</option>
+                        <option value="Relendo">Relendo</option>
+                        <option value="Pausado">Pausado</option>
+                        <option value="Dropei">Dropei</option>
+                    </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                    <label for="progresso-capitulo">Progresso do Capítulo:</label>
+                    <input type="number" id="progresso-capitulo" class="form-control" min="1" placeholder="Capítulo atual" value="0">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 form-group">
+                    <label for="data-inicio">Data de Início:</label>
+                    <input type="date" id="data-inicio" class="form-control">
+                    </div>
+                    <div class="col-md-6 form-group">
+                    <label for="data-conclusao">Data de Conclusão:</label>
+                    <input type="date" id="data-conclusao" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notas">Notas:</label>
+                    <textarea id="notas" class="form-control" placeholder="Escreva suas notas aqui..."></textarea>
+                </div>
+                <div class="button-area">
+                    <button type="button" id="botao-excluir" class="btn btn-danger" style="display:none;" onclick="confirmDelete(globalUsuarioId, globalMangaId)">Excluir</button>
+
+                    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Aviso</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            Tem certeza de que deseja excluir esta entrada da sua lista de leitura?
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" id="confirmDeleteButton" class="btn btn-danger" onclick="executeDelete()">OK</button>
+                            
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button id="save-button" type="button" class="btn btn-primary" onclick="addMangaToList()">Salvar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="successMessage" style="display: none;"></div>
+
+
+
+
+        
+    </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!-- Inclusão do Select2 JS após o jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+        <!-- Seu script JS -->
+        <script src="/src/search.js"></script>
+        <script src="/src/checkLoginStatus.js"></script>
+        <script src="/src/listaDeLeitura.js"></script>
+        <script src="/src/mangaDetails2.js"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@ async function fetchListaDeLeitura() {
       }
       const listaDeLeitura = await response.json();
       window.allMangas = listaDeLeitura; 
-      createGenreFilterOptions(window.allMangas);
+      createGenreFilterOptions();
       createStatusSelect(window.allMangas);
       applyFilters();
   } catch (error) {

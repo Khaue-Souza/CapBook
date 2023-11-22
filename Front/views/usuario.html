@@ -16,76 +16,79 @@
 
 <body style="background-color: #f0f0f0;">
     <header>
+        
         <nav>
             <ul>
                 <li><a href="../views/inicio.html">Início</a></li>
                 <li><a href="#">Mangás</a></li>
-                <form action="../views/search.html" method="GET">
-                    <div class="search">
-                        <div class="search-box">
-                            <div class="search-field">
-                                <input placeholder="Search..." id="searchInput" name="q" class="input" type="text">
-                                <div class="search-box-icon">
-                                    <button class="btn-icon-content">
-                                        <i class="search-icon">
-                                            <svg xmlns="://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
-                                                <path
-                                                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
-                                                    fill="#fff"></path>
-                                            </svg>
-                                        </i>
-                                    </button>
+                    <li><form action="../views/search.html" method="GET">
+                        <div class="col-2 search">
+                            <div class="search-box">
+                                <div class="search-field">
+                                    <input placeholder="Search..." id="searchInput" name="q" class="input" type="text">
+                                    <div class="search-box-icon">
+                                        <button class="btn-icon-content">
+                                            <i class="search-icon">
+                                                <svg xmlns="://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+                                                    <path
+                                                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                                                        fill="#fff"></path>
+                                                </svg>
+                                            </i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </li>
             </ul>
         </nav>
     </header>
 
     <div class="primario">
-            <div class="secundaria col-8">
-                <h2 class="titulo">Cadastro de usuário</h2>
-                <br>
-                <h3 class="sub">Dados</h3>
-                <div class="col-10 contorno">
-                    <div>
-                        <div class="col-10 alinha">
-                            <div class="inputLabel col ">
-                                <label>Nome</label>
-                                <input type="text" id="usuarioNome" onchange="onChangeCampos()" placeholder="Carlos">
-                            </div>
-                            <div class="inputLabel col ">
-                                <label>Data de nascimento</label>
-                                <input type="date" id="usuarioNascimento" onchange="onChangeCampos()" placeholder="DD/MM/AAAA">
-                            </div>
-                            <div class="inputLabel col ">
-                                <label>E-mail</label>
-                                <input type="email" id="usuarioEmail" onchange="onChangeCampos()" placeholder="safemanga@read.com">
-                            </div>
-                            <div class="inputLabel col ">
-                                <label>Senha</label>
-                                <input type="password" id="usuarioSenha" onchange="onChangeCampos()"
-                                    placeholder="Digite sua senha">
-                            </div>
-                            <div class="inputLabel col ">
-                                <label>Confirmar senha</label>
-                                <input type="password" id="confirmaSenha" placeholder="Confirme sua senha">
-                            </div>
+        <div class="secundaria col-8">
+            <h2 class="titulo">Cadastro de usuário</h2>
+            <br>
+            <div class="col-10 contorno">
+                <div>
+                    <div class="col-10 alinha">
+                        <div class="inputLabel col ">
+                            <label>Nome</label>
+                            <input type="text" id="usuarioNome" onchange="onChangeCampos()" placeholder="Carlos">
+                        </div>
+                        <div class="inputLabel col ">
+                            <label>Data de nascimento</label>
+                            <input type="date" id="usuarioNascimento" onchange="onChangeCampos()"
+                                placeholder="DD/MM/AAAA">
+                        </div>
+                        <div class="inputLabel col ">
+                            <label>E-mail</label>
+                            <input type="email" id="usuarioEmail" onchange="onChangeCampos()"
+                                placeholder="safemanga@read.com">
+                        </div>
+                        <div class="inputLabel col ">
+                            <label>Senha</label>
+                            <input type="password" id="usuarioSenha" onchange="onChangeCampos()"
+                                placeholder="Digite sua senha">
+                        </div>
+                        <div class="inputLabel col ">
+                            <label>Confirmar senha</label>
+                            <input type="password" id="confirmaSenha" placeholder="Confirme sua senha">
                         </div>
                     </div>
                 </div>
-                <br>
-                <!-- Div Vazia para receber valor de salvamento do Usuário -->
-                <div id="divSpan" class="spanDiv">
-                </div>
-                <!-- Botão de Salvar -->
-                <div class="botao">
-                    <input type="button" onclick="confirmaSenha()" value="Salvar" class="submit btn-lg btn btn-primary"
-                        style=" border:1px solid black; margin-top: 5%;">
-                </div>
             </div>
+            <br>
+            <!-- Div Vazia para receber valor de salvamento do Usuário -->
+            <div id="divSpan" class="spanDiv">
+            </div>
+            <!-- Botão de Salvar -->
+            <div class="botao">
+                <input type="button" onclick="confirmaSenha()" value="Salvar" class="submit btn-lg btn btn-primary"
+                    style=" border:1px solid black; margin-top: 5%;">
+            </div>
+        </div>
     </div>
     </div>
 </body>

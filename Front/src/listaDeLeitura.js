@@ -306,8 +306,8 @@ function preencherModalComDados(manga) {
   }
 }
 
-var globalMangaId = mangaId; 
-var globalUsuarioId = localStorage.getItem('usuarioId');
+let globalMangaId = mangaId; 
+let globalUsuarioId = localStorage.getItem('usuarioId');
 function confirmDelete(usuarioId, id) {
   globalUsuarioId = usuarioId;
   globalMangaId = id;
@@ -375,7 +375,7 @@ async function addMangaToList() {
 
   const nomeMangaEnglish = mediaGlobal.nomeMangaEnglish ;
   const nomeMangaRomaji  = mediaGlobal.nomeMangaRomaji  ;
-  const nomeMangaNative  = mediaGlobal.nomeMangaNative  ;
+
   let messageNomeManga   = nomeMangaEnglish || nomeMangaRomaji;
   
   const userToken = localStorage.getItem('userToken');

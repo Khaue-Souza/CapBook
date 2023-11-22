@@ -279,6 +279,7 @@ function openUpdateModal(mangaId) {
   }
 }
 
+let mediaGlobal; 
 function preencherModalComDados(manga) {
   console.log("Dados recebidos no preencherModalComDados:", manga);
   mediaGlobal = manga;
@@ -305,7 +306,8 @@ function preencherModalComDados(manga) {
   }
 }
 
-
+var globalMangaId = mangaId; 
+var globalUsuarioId = localStorage.getItem('usuarioId');
 function confirmDelete(usuarioId, id) {
   globalUsuarioId = usuarioId;
   globalMangaId = id;
@@ -353,7 +355,7 @@ function deleteManga(usuarioId, mangaId) {
 
 function showSuccessMessage(message) {
     
-  var successMessageDiv = $('#successMessage');
+  let successMessageDiv = $('#successMessage');
   successMessageDiv.text(message);
   successMessageDiv.fadeIn();
 

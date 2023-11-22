@@ -64,7 +64,6 @@ async function fetchDetails() {
     
     document.getElementById('cover-image').src = mediaGlobal.coverImage.large;
     document.getElementById('title-romaji').textContent = mediaGlobal.title.romaji;
-    document.getElementById('title-english').textContent = mediaGlobal.title.english;
     document.getElementById('description').innerHTML = mediaGlobal.description;
 
     document.getElementById('modal-image').src = mediaGlobal.coverImage.large;
@@ -100,6 +99,7 @@ async function fetchDetails() {
 }
 
 function configurarEventListeners(manga) {
+    console.log(manga)
     const botaoAdicionar = $('#botao-adicionar');
     const botaoExcluir = $('#botao-excluir');
 
@@ -153,7 +153,7 @@ function preencherModalComDados(manga) {
          // Atualiza o nome do mangá na modal
         let modalTitle = document.getElementById('modal-title');
         if (modalTitle) {
-            modalTitle.textContent = manga.nomeMangaRomaji || 'Nome Indisponível';
+            modalTitle.textContent = mediaGlobal.title.romaji || 'Nome Indisponível';
         }
 
         // Atualiza a imagem
@@ -231,11 +231,13 @@ async function addMangaToList() {
     const dataInicio = document.getElementById('data-inicio').value || new Date().toISOString().substr(0, 10);
     const dataConclusao = document.getElementById('data-conclusao').value;
     const notas = document.getElementById('notas').value;
+    console.log("mediaGlobal")
+    console.log(mediaGlobal)
 
     const nomeMangaEnglish = mediaGlobal.title.english ||  'Nome não disponível';
     const nomeMangaRomaji  = mediaGlobal.title.romaji  ||  'Nome não disponível';
     const nomeMangaNative  = mediaGlobal.title.native  ||  'Nome não disponível';
-    let messageNomeManga   = nomeMangaEnglish || nomeMangaRomaji;
+    let messageNomeManga   = mediaGlobal.title.english || nomeMangaRomaji;
     
     const userToken = localStorage.getItem('userToken');
     const usuarioId = localStorage.getItem('usuarioId');
@@ -260,7 +262,7 @@ async function addMangaToList() {
         Images: mediaGlobal.coverImage.large,
         Banner: mediaGlobal.bannerImage || '', 
         PaisDeOrigem: formatCountryOfOrigin(mediaGlobal.countryOfOrigin),
-        AnoDePublicacao: mediaGlobal.startDate.year,
+        AnoDePublicacao: mediaGlobal.startDate.year || 0,
         NomesAlternativos: mediaGlobal.synonyms.join(', ')
     };
 

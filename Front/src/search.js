@@ -44,7 +44,7 @@ function displayResults(mediaList) {
                     
                         <div>
                             <a href="mangaDetails2.html?id=${media.id}"> 
-                                <img src="${media.coverImage.large}" alt="${media.title.romaji}" width="150">
+                                <img src="${media.coverImage.large}" width="150">
                             </a>
                         </div>
                         <div style="margin: 5px;">

@@ -4,8 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+
+
 async function fetchListaDeLeitura() {
   const usuarioId = localStorage.getItem('usuarioId');
+
+
   if (!usuarioId) {
       console.error('Usuário não está logado');
       return;
@@ -207,9 +211,6 @@ function atualizarListaDeMangasPorStatus(listaDeLeitura) {
         tr.appendChild(originTd);
         tr.appendChild(formatTd);
 
-          // console.log("corpo da tabela")
-          // console.log(manga)
-
           const coverBtnCell = document.createElement('td');
           coverBtnCell.classList.add('cover-btn-cell');
       
@@ -279,7 +280,7 @@ function openUpdateModal(mangaId) {
   }
 }
 
-let mediaGlobal; 
+
 function preencherModalComDados(manga) {
   console.log("Dados recebidos no preencherModalComDados:", manga);
   mediaGlobal = manga;
@@ -306,12 +307,10 @@ function preencherModalComDados(manga) {
   }
 }
 
-let globalMangaId = mangaId; 
-let globalUsuarioId = localStorage.getItem('usuarioId');
 function confirmDelete(usuarioId, id) {
   globalUsuarioId = usuarioId;
   globalMangaId = id;
-  console.log("ID do usuario:" +globalUsuarioId +"         Id do manga:" + globalMangaId)
+  console.log(" ID do usuario:" + globalUsuarioId + "Id do manga:" + globalMangaId)
   
   $('#deleteConfirmationModal').modal('show');
 }
@@ -376,6 +375,8 @@ async function addMangaToList() {
   const nomeMangaEnglish = mediaGlobal.nomeMangaEnglish ;
   const nomeMangaRomaji  = mediaGlobal.nomeMangaRomaji  ;
 
+
+  
   let messageNomeManga   = nomeMangaEnglish || nomeMangaRomaji;
   
   const userToken = localStorage.getItem('userToken');

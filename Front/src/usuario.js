@@ -24,7 +24,7 @@ function submit() {
 // Função de POST
 async function postData(data) {
   // Fetch faz o post dos dados no servidor
-  await fetch("http://localhost:5114/api/Usuario", {
+  await fetch("https://safemangaread.azurewebsites.net/api/Usuario", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

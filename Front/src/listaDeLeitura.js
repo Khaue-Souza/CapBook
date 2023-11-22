@@ -12,7 +12,7 @@ async function fetchListaDeLeitura() {
   }
 
   try {
-      const response = await fetch(`http://localhost:5114/api/ListaDeLeitura/usuario/${usuarioId}`);
+      const response = await fetch(`https://safemangaread.azurewebsites.net/api/ListaDeLeitura/usuario/${usuarioId}`);
       if (!response.ok) {
           throw new Error('Falha ao buscar lista de leitura');
       }
@@ -328,7 +328,7 @@ function deleteManga(usuarioId, mangaId) {
       alert("Erro: Não foi possível obter o ID do usuário ou do mangá.");
       return;
   }
-  const endpoint = `http://localhost:5114/api/ListaDeLeitura/usuario/${usuarioId}/manga/${mangaId}`;
+  const endpoint = `https://safemangaread.azurewebsites.net/api/ListaDeLeitura/usuario/${usuarioId}/manga/${mangaId}`;
   
   fetch(endpoint, {
       method: 'DELETE',
@@ -398,7 +398,7 @@ async function addMangaToList() {
   };
  
 
-  const endpoint = `http://localhost:5114/api/ListaDeLeitura`;
+  const endpoint = `https://safemangaread.azurewebsites.net/api/ListaDeLeitura`;
   const method = 'PUT';
 
 

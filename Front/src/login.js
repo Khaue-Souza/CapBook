@@ -10,7 +10,7 @@ async function confere() {
   };
   
   try {
-      const response = await fetch("http://localhost:5114/login", {
+      const response = await fetch("https://safemangaread.azurewebsites.net/login", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",

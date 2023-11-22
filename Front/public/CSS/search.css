@@ -5,17 +5,30 @@
 .manga-genres {
     font-style: italic;
     color: #666; 
+    display: flex;
+    flex-direction: column;
 }
 
-.teste{
-  background-color: aqua;
+.middleDiv{
+  background-color: #f0f0f0;
   border: 1px solid black;
   border-radius: 5px;
   margin: 1%;
-  width: 15%;
-  height: 15%;
+  padding: 5px;
 }
 
 .results{
   margin: 1%;
+}
+
+.alinha{
+  display: flex;
+  flex-direction: column;
+}
+
+.middle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

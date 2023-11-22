@@ -7,7 +7,7 @@ async function searchManga() {
     history.replaceState(null, '', `?q=${encodeURIComponent(searchTerm)}`);
 
     try {
-        const response = await fetch(`https://safemangaread.azurewebsites.net/api/Anilist/${searchTerm}`);
+        const response = await fetch(`https://safemangaread.azurewebsites.net/api/Anilist/search/${searchTerm}`);
         const data = await response.json();
 
         if (!data || !data.data || !data.data.Page || !data.data.Page.media) {

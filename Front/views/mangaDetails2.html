@@ -1,118 +1,127 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Mangá</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/CSS/unificado.css">
-    <link rel="stylesheet" href="../public/CSS/searchInput.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Mangá</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="../public/CSS/unificado.css" rel="stylesheet" type="text/css" />
+  <link href="../public/CSS/searchInput.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-<body>
+
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="../views/inicio.html">Início</a></li>
-                <li><a href="#">Mangás</a></li>
-                <form action="../views/search.html" method="GET">
-                    <div class="search">
-                        <div class="search-box">
-                            <div class="search-field">
-                                <input placeholder="Search..." id="searchInput" name="q" class="input" type="text">
-                                <div class="search-box-icon">
-                                    <button class="btn-icon-content">
-                                        <i class="search-icon">
-                                            <svg xmlns="://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
-                                                <path
-                                                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
-                                                    fill="#fff"></path>
-                                            </svg>
-                                        </i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="../views/inicio.html">Início</a></li>
+          <li><a href="#">Mangás</a></li>
+          <form action="../views/search.html" method="GET">
+            <div class="search">
+              <div class="search-box">
+                <div class="search-field">
+                  <input placeholder="Search..." id="searchInput" name="q" class="input" type="text">
+                  <div class="search-box-icon">
+                    <button class="btn-icon-content">
+                      <i class="search-icon">
+                        <svg xmlns="://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+                          <path
+                            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                            fill="#fff"></path>
+                        </svg>
+                      </i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </ul>
+      </nav>
     </header>
 
-<main class="container mt-5">
-    <div class="row">
+    <main class="container mt-5">
+      <div class="row">
         <div class="col-md-4">
-            <img id="cover-image" src="" alt="Capa do mangá" class="img-fluid rounded">
-             <img id="banner-image" src="" alt="Banner do mangá" class="img-fluid rounded">
+          <img id="cover-image" src="" alt="Capa do mangá" class="img-fluid rounded">
+          <img id="banner-image" src="" alt="Banner do mangá" class="img-fluid rounded">
         </div>
-       
+
         <div class="col-md-8">
-            <h1 id="title-romaji"></h1>
-            <h2 id="title-english"></h2>
-            <p id="description"></p>
+          <h1 id="title-romaji"></h1>
+          <h2 id="title-english"></h2>
+          <p id="description"></p>
         </div>
         <div class="col-md-12">
-            <!-- Botão que aciona a modal -->
-            <button type="button" id="botao-adicionar" class="btn btn-primary" data-toggle="modal" data-target="#mangaModal">
-              Adicionar à Lista de Leitura
-            </button>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-md-12" id="additional-info">
-        </div>
-    </div>
-</main>
-
-<!-- Modal -->
-<!-- Modal -->
-<div class="modal fade" id="mangaModal" tabindex="-1" role="dialog" aria-labelledby="mangaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document"> <!-- 'modal-lg' para uma modal mais larga -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <img src="" id="modal-image" alt="Manga Cover" class="img-fluid"> <!-- 'img-fluid' para responsividade -->
-          <h5 class="modal-title custom-modal-title" id="modal-title">Nome do Manga</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          <!-- Botão que aciona a modal -->
+          <button type="button" id="botao-adicionar" class="btn btn-primary" data-toggle="modal"
+            data-target="#mangaModal">
+            Adicionar à Lista de Leitura
           </button>
         </div>
-        <div class="modal-body">
-          <div class="form-row"> <!-- 'form-row' para agrupar os campos -->
-            <div class="col-md-6 form-group"> <!-- 'col-md-6' para ocupar metade da largura em telas médias para cima -->
-              <label for="status-manga">Status do Mangá:</label>
-              <select id="status-manga" class="form-control"> <!-- 'form-control' para estilização do Bootstrap -->
-                <option value="Lendo">Lendo</option>
-                <option value="Planejo Ler">Planejo Ler</option>
-                <option value="Completo">Completo</option>
-                <option value="Relendo">Relendo</option>
-                <option value="Pausado">Pausado</option>
-                <option value="Dropei">Dropei</option>
-              </select>
-            </div>
-            <div class="col-md-6 form-group">
-              <label for="progresso-capitulo">Progresso do Capítulo:</label>
-              <input type="number" id="progresso-capitulo" class="form-control" min="1" placeholder="Capítulo atual" value="0">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-md-6 form-group">
-              <label for="data-inicio">Data de Início:</label>
-              <input type="date" id="data-inicio" class="form-control">
-            </div>
-            <div class="col-md-6 form-group">
-              <label for="data-conclusao">Data de Conclusão:</label>
-              <input type="date" id="data-conclusao" class="form-control">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="notas">Notas:</label>
-            <textarea id="notas" class="form-control" placeholder="Escreva suas notas aqui..."></textarea>
-          </div>
-          <div class="button-area">
-            <button type="button" id="botao-excluir" class="btn btn-danger" style="display:none;" onclick="confirmDelete(globalUsuarioId, globalMangaId)">Excluir</button>
+      </div>
 
-            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+      <div class="row mt-4">
+        <div class="col-md-12" id="additional-info">
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mangaModal" tabindex="-1" role="dialog" aria-labelledby="mangaModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document"> <!-- 'modal-lg' para uma modal mais larga -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <img src="" id="modal-image" alt="Manga Cover" class="img-fluid"> <!-- 'img-fluid' para responsividade -->
+            <h5 class="modal-title custom-modal-title" id="modal-title">Nome do Manga</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-row"> <!-- 'form-row' para agrupar os campos -->
+              <div class="col-md-6 form-group">
+                <!-- 'col-md-6' para ocupar metade da largura em telas médias para cima -->
+                <label for="status-manga">Status do Mangá:</label>
+                <select id="status-manga" class="form-control"> <!-- 'form-control' para estilização do Bootstrap -->
+                  <option value="Lendo">Lendo</option>
+                  <option value="Planejo Ler">Planejo Ler</option>
+                  <option value="Completo">Completo</option>
+                  <option value="Relendo">Relendo</option>
+                  <option value="Pausado">Pausado</option>
+                  <option value="Dropei">Dropei</option>
+                </select>
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="progresso-capitulo">Progresso do Capítulo:</label>
+                <input type="number" id="progresso-capitulo" class="form-control" min="1" placeholder="Capítulo atual"
+                  value="0">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <label for="data-inicio">Data de Início:</label>
+                <input type="date" id="data-inicio" class="form-control">
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="data-conclusao">Data de Conclusão:</label>
+                <input type="date" id="data-conclusao" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="notas">Notas:</label>
+              <textarea id="notas" class="form-control" placeholder="Escreva suas notas aqui..."></textarea>
+            </div>
+            <div class="button-area">
+              <button type="button" id="botao-excluir" class="btn btn-danger" style="display:none;"
+                onclick="confirmDelete(globalUsuarioId, globalMangaId)">Excluir</button>
+
+              <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog"
+                aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -126,32 +135,36 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                      <button type="button" id="confirmDeleteButton" class="btn btn-danger" onclick="executeDelete()">OK</button>
-                      
+                      <button type="button" id="confirmDeleteButton" class="btn btn-danger"
+                        onclick="executeDelete()">OK</button>
+
                     </div>
                   </div>
                 </div>
               </div>
 
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            <button id="save-button" type="button" class="btn btn-primary" onclick="addMangaToList()">Salvar</button>
-        </div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              <button id="save-button" type="button" class="btn btn-primary" onclick="addMangaToList()">Salvar</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div id="successMessage" style="display: none;"></div>
-
-  
-  
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="../src/checkLoginStatus.js"></script>
-<script src="../src/search.js"></script>
-<script src="../src/mangaDetails2.js"></script>
+    <div id="successMessage" style="display: none;"></div>
 
 
-</body>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="../src/checkLoginStatus.js"></script>
+    <script src="../src/search.js"></script>
+    <script src="../src/mangaDetails2.js"></script>
+
+    <footer>
+      <p>&copy; 2023 SafeMangaRead. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+
 </html>

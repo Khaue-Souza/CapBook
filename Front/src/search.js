@@ -32,12 +32,33 @@ function displayResults(mediaList) {
 
             const mangaElement = `
                 <div>
-                    <a href="mangaDetails2.html?id=${media.id}">  <!-- Adicione este link -->
-                        <img src="${media.coverImage.large}" alt="${media.title.romaji}" width="150">
-                        <h3>${media.title.romaji}</h3>
-                    </a>
-                    <p class="manga-genres">Gêneros: ${genres}</p>
-                    <p class="manga-id">ID: ${media.id}</p>
+                    <div class="alinha" style="display: flex; flex-direction: row;">
+
+                    
+                        <div>
+                            <a href="mangaDetails2.html?id=${media.id}"> 
+                                <img src="${media.coverImage.large}" alt="${media.title.romaji}" width="150">
+                            </a>
+                        </div>
+                        <div style="margin: 5px;">
+                            <div>
+                                <a href="mangaDetails2.html?id=${media.id}"> 
+                                    <h3>${media.title.romaji}</h3>
+                                </a>
+                            </div>
+
+                        
+                            <div>
+                                <p class="manga-genres">Gêneros: ${genres}</p>
+                            </div>
+
+                            <div>
+                                <p class="manga-id">ID: ${media.id}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                        <hr style="border: 2px solid black;">  
                 </div>
             `;
 

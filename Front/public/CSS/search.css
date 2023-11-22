@@ -6,3 +6,16 @@
     font-style: italic;
     color: #666; 
 }
+
+.teste{
+  background-color: aqua;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1%;
+  width: 15%;
+  height: 15%;
+}
+
+.results{
+  margin: 1%;
+}

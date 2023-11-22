@@ -1,6 +1,7 @@
 async function fetchData() {
     const searchTerm = document.getElementById('searchTerm').value;
     const response = await fetch(`https://safemangaread.azurewebsites.net/${searchTerm}`);
+    
     const data = await response.json();
 
     if (!data || !data.data || !data.data.Page || !data.data.Page.media) {

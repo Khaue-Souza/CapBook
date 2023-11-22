@@ -53,7 +53,7 @@ async function fetchDetails() {
     if(id === null){
         return null;
     }
-    const response = await fetch(`http://localhost:5114/api/Anilist/details/${id}`);
+    const response = await fetch(`https://safemangaread.azurewebsites.net/api/Anilist/details/${id}`);
 
     const data = await response.json();
 

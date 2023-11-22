@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\capra\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj": {}
+    "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\capra\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj": {
+    "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\capra\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
+        "projectUniqueName": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
         "projectName": "SafeMangaRead.Api",
-        "projectPath": "C:\\Users\\capra\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
-        "packagesPath": "C:\\Users\\capra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\capra\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\obj\\",
+        "projectPath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
+        "packagesPath": "C:\\Users\\khaue\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\capra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\khaue\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

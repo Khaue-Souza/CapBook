@@ -2,26 +2,33 @@ async function searchManga() {
     const searchTerm = document.getElementById('searchInput').value;
     if (!searchTerm) return;
 
-
-    // Atualiza a URL sem recarregar a página
     history.replaceState(null, '', `?q=${encodeURIComponent(searchTerm)}`);
 
     try {
         const response = await fetch(`https://safemangaread.azurewebsites.net/api/Anilist/search/${searchTerm}`);
-        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const responseBody = await response.text();
+
+        const data = JSON.parse(responseBody);
 
         if (!data || !data.data || !data.data.Page || !data.data.Page.media) {
             console.error('Resposta inesperada:', data);
             return;
         }
 
-        displayResults(data.data.Page.media);  // Ajustando para capturar a lista correta de mangás
+        displayResults(data.data.Page.media);
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Erro ao buscar dados:', error);
     }
 }
 
+
 function displayResults(mediaList) {
+    console.log(mediaList)
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = ''; // Clear previous results
 

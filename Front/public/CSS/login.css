@@ -44,3 +44,40 @@
   margin-bottom: 5%;
   padding: 10px;
 }
+
+
+.navMenu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.botoesNavegar{
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgb(37, 37, 37);
+}
+.botoesNavegar:hover{
+  background-color: rgb(84, 84, 84);
+}
+
+
+@media only screen and (max-width: 850px) {
+
+  .navMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .alinhaTela{
+    margin-top: 10px;
+  }
+}

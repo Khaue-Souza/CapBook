@@ -44,7 +44,7 @@ nav a:hover {
   border: 1px solid #ccc;
   margin: 10px;
   padding: 10px;
-  width: 200px;
+  width: auto;
   text-align: center;
   background-color: #fff; /* Adicionado para unificar estilo com main de style.css */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adicionado para unificar estilo com main de style.css */
@@ -64,4 +64,38 @@ footer {
   bottom: 0;
 }
 
+.navMenu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.divButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.botoesNavegar{
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgb(37, 37, 37);
+}
+.botoesNavegar:hover{
+  background-color: rgb(84, 84, 84);
+}
+
+
+@media only screen and (max-width: 850px) {
+
+  .navMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .alinhaTela{
+    margin-top: 10px;
+  }
+}

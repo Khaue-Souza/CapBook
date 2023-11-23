@@ -144,6 +144,10 @@ tr:hover {
 
 .container {
   display: flex;
+  flex-direction: row;
+  
+  margin-top: 20px;
+  justify-content: space-between;
 }
 
 .filters-panel {
@@ -276,6 +280,12 @@ table tr:hover {
   background-color: rgb(84, 84, 84);
 }
 
+.center{
+  display: flex;
+  flex-direction: row;
+  margin: 5%;
+}
+
 
 @media only screen and (max-width: 850px) {
 
@@ -288,5 +298,8 @@ table tr:hover {
 
   .alinhaTela{
     margin-top: 10px;
+  }
+  .container {
+    flex-direction: column;
   }
 }

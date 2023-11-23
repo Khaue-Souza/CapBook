@@ -262,3 +262,12 @@ C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\Sa
 C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\obj\Debug\net6.0\SafeMangaRead.Api.pdb
 C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\obj\Debug\net6.0\SafeMangaRead.Api.genruntimeconfig.cache
 C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\obj\Debug\net6.0\ref\SafeMangaRead.Api.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Microsoft.Extensions.Configuration.UserSecrets.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Azure.Security.KeyVault.Secrets.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll

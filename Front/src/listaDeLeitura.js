@@ -402,8 +402,9 @@ async function addMangaToList() {
   const endpoint = `https://safemangaread.azurewebsites.net/api/ListaDeLeitura`;
   const method = 'PUT';
 
-
+console.log(endpoint)
   console.log("Enviando dados para a API:", listaDeLeitura);
+
   try {
       const response = await fetch(endpoint, {
           method: method,
@@ -414,6 +415,9 @@ async function addMangaToList() {
           body: JSON.stringify(listaDeLeitura),
       });
 
+      console.log('Resposta da API:', response);
+
+      console.log(response.ok)
       if (!response.ok) {
           const errorText = await response.text();
           console.error('Erro na resposta:', errorText);

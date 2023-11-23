@@ -266,7 +266,6 @@ async function addMangaToList() {
         NomesAlternativos: mediaGlobal.synonyms.join(', ')
     };
 
-    let mangaIdDaLista;
     isNewEntry = !mangaIdDaLista;
    
 

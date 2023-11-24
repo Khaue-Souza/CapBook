@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
   fetchListaDeLeitura().then(() => {
-    createGenreFilterOptions(); // Chama após a lista de leitura estar disponível
   });
 });
 
@@ -72,8 +71,6 @@ function createGenreFilterOptions() {
   // Inicializa o Select2 ou outra biblioteca similar aqui
   $('#genres-filter').select2();
 }
-
-createGenreFilterOptions();
 
 function getSelectedGenres() {
   return $('#genres-filter').val(); 
@@ -377,7 +374,7 @@ async function addMangaToList() {
 
 
   
-  let messageNomeManga   = nomeMangaEnglish || nomeMangaRomaji;
+  let messageNomeManga   = nomeMangaRomaji;
   
   const userToken = localStorage.getItem('userToken');
   const usuarioId = localStorage.getItem('usuarioId');
@@ -392,6 +389,7 @@ async function addMangaToList() {
       UsuarioId: parseInt(usuarioId),  
       MangaId: parseInt(mediaGlobal.mangaId),
       StatusManga: statusManga,
+      nomeMangaRomaji: mediaGlobal.nomeMangaRomaji,
       ProgressoCapitulo: parseInt(progressoCapitulo) || 0,
       DataInicio: dataInicio,
       DataConclusao: dataConclusao || null,

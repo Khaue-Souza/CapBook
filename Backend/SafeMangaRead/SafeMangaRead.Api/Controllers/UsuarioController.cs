@@ -87,6 +87,10 @@ namespace SafeMangaRead.Controllers
             {
                 return Problem("Entity set 'APIdbcontext.usuarios'  is null.");
             }
+
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(usuario.UsuarioSenha);
+            usuario.UsuarioSenha = hashedPassword;
+
             _context.usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
@@ -137,17 +141,15 @@ namespace SafeMangaRead.Controllers
         [HttpPost("/login")]
         public async Task<ActionResult> PostUsuarioC(Usuario usuario)
         {
-            var userContext = await _context.usuarios.FirstOrDefaultAsync(t => t.UsuarioEmail == usuario.UsuarioEmail 
-            && t.UsuarioSenha == usuario.UsuarioSenha);
+            var userContext = await _context.usuarios.FirstOrDefaultAsync(t => t.UsuarioEmail == usuario.UsuarioEmail);
 
-            if (userContext != null)
+            if (userContext != null && BCrypt.Net.BCrypt.Verify(usuario.UsuarioSenha, userContext.UsuarioSenha))
             {
                 var token = GenerateJwtToken(userContext);
                 return Ok(new { status = 200, isSuccess = true, message = "Login efetuado com sucesso!", token, userContext.UsuarioId });
             }
             else
             {
-                // Alterando de Ok para Unauthorized
                 return Unauthorized(new { status = 401, isSuccess = false, message = "Login ou senha incorretos!" });
             }
         }

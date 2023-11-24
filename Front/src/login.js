@@ -20,7 +20,7 @@ async function confere() {
 
       // Verifique o status da resposta
       if (response.status !== 200) {
-          alert('Usuário ou senha incorretos!');
+          showErrorModal('Email ou senha incorretos!');
           return;
       }
 
@@ -44,3 +44,17 @@ async function confere() {
 function usuario(){
     window.location.href = '../views/usuario.html'
 }
+
+
+function showErrorModal(errorMessage) {
+    const errorModal = document.getElementById('errorModal');
+    const errorMessageElement = document.getElementById('errorMessage');
+  
+    errorMessageElement.textContent = errorMessage;
+    errorModal.style.display = 'block';
+  }
+  
+  function closeErrorModal() {
+    const errorModal = document.getElementById('errorModal');
+    errorModal.style.display = 'none';
+  }

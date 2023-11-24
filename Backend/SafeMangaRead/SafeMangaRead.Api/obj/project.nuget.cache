@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "I/DEI3HMBM2B5TNY5hgNAJVv+c7vTz6kHLWS+IXIHv4HtGqEj0QL2w0Hoi1HmEUd1cBYy3LVeTCYy6U0vN6Xpw==",
+  "dgSpecHash": "nMsqBnSOW4g9leR6isyIAJldOvqBXLfyZLNsJhmTLY78lWsxEFspozKlU7LnASXEoeRxI7mO2wfZlIUM/m19qg==",
   "success": true,
   "projectFilePath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\khaue\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\khaue\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\khaue\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\khaue\\.nuget\\packages\\dotenv.net\\3.1.3\\dotenv.net.3.1.3.nupkg.sha512",
     "C:\\Users\\khaue\\.nuget\\packages\\dotnetenv\\2.5.0\\dotnetenv.2.5.0.nupkg.sha512",
     "C:\\Users\\khaue\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

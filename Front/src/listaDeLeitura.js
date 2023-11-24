@@ -57,6 +57,9 @@ function createGenreFilterOptions() {
     'Psychological': 'Psicológico',
     'Romance': 'Romance',
     'Sci-Fi': 'Ficção Científica',
+    'Music': 'Música',
+    'Sports': 'Esportes',
+    'Thriller': 'Suspense',
   };
 
   const genresFilterSelect = document.getElementById('genres-filter');
@@ -151,13 +154,6 @@ function atualizarListaDeMangasPorStatus(listaDeLeitura) {
       return acc;
   }, {});
 
-
-  const countryMapping = {
-    'TW': 'Taiwan',
-    'JP': 'Japão',
-    'CN': 'China',
-    'KR': 'Coreia do Sul',
-  };
   
   const formatMapping = {
     'ONE_SHOT': 'ONE SHOT',
@@ -197,7 +193,7 @@ function atualizarListaDeMangasPorStatus(listaDeLeitura) {
           
             // Célula para o país de origem
         const originTd = document.createElement('td');
-        originTd.textContent = countryMapping[manga.paisDeOrigem] || manga.paisDeOrigem || 'Desconhecido';
+        originTd.textContent = manga.paisDeOrigem;
 
         // Célula para o formato
         const formatTd = document.createElement('td');

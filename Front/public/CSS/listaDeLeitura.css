@@ -144,6 +144,10 @@ tr:hover {
 
 .container {
   display: flex;
+  flex-direction: row;
+  
+  margin-top: 20px;
+  justify-content: space-between;
 }
 
 .filters-panel {
@@ -253,4 +257,49 @@ table tr:hover {
 
 .btn-update {
   width: 100%; /* O botão preenche toda a largura do contêiner */
+}
+
+.navMenu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.botoesNavegar{
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgb(37, 37, 37);
+}
+.botoesNavegar:hover{
+  background-color: rgb(84, 84, 84);
+}
+
+.center{
+  display: flex;
+  flex-direction: row;
+  margin: 5%;
+}
+
+
+@media only screen and (max-width: 850px) {
+
+  .navMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .alinhaTela{
+    margin-top: 10px;
+  }
+  .container {
+    flex-direction: column;
+  }
 }

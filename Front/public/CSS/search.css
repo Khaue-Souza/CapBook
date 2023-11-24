@@ -2,6 +2,10 @@
     display: none;
 }
 
+.ajeita{
+  height: 100vh;
+}
+
 .manga-genres {
     font-style: italic;
     color: #666; 
@@ -9,9 +13,15 @@
     flex-direction: column;
 }
 
-.middleDiv{
+.middleDivOn{
   background-color: #f0f0f0;
   border: 1px solid black;
+  border-radius: 5px;
+  margin: 1%;
+  padding: 5px;
+}
+
+.middleDivOff{
   border-radius: 5px;
   margin: 1%;
   padding: 5px;
@@ -29,7 +39,6 @@
 .middle{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 

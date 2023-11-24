@@ -1,5 +1,11 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    footerDivCorrect();
+});
+
 async function searchManga() {
     const searchTerm = document.getElementById('searchInput').value;
+    
     if (!searchTerm) return;
 
     history.replaceState(null, '', `?q=${encodeURIComponent(searchTerm)}`);
@@ -21,8 +27,25 @@ async function searchManga() {
         }
 
         displayResults(data.data.Page.media);
+        footerDivCorrect()
     } catch (error) {
         console.error('Erro ao buscar dados:', error);
+    }
+}
+
+function footerDivCorrect() {
+    var searchTerm = document.getElementById('searchInput').value;
+    var div = document.getElementById('divMeio');
+    var divOnOff = document.getElementById('middleDivOnOff');
+
+    if ( searchTerm.length > 0) {
+        div.classList.remove('ajeita');
+        divOnOff.classList.remove('middleDivOff');
+        divOnOff.classList.add('middleDivOn');
+    } else {
+        div.classList.add('ajeita');
+        divOnOff.classList.remove('middleDivOn');
+        divOnOff.classList.add('middleDivOff');
     }
 }
 

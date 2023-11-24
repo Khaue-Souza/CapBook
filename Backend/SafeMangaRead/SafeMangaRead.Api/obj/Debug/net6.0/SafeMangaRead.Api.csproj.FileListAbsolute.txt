@@ -262,3 +262,6 @@ C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\Sa
 C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\obj\Debug\net6.0\SafeMangaRead.Api.pdb
 C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\obj\Debug\net6.0\SafeMangaRead.Api.genruntimeconfig.cache
 C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\obj\Debug\net6.0\ref\SafeMangaRead.Api.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\dotenv.net.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\DotNetEnv.dll
+C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Sprache.dll

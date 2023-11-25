@@ -265,3 +265,7 @@ C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\Sa
 C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\dotenv.net.dll
 C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\DotNetEnv.dll
 C:\Users\khaue\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Sprache.dll
+C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\BCrypt.Net-Core.dll
+C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\dotenv.net.dll
+C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\DotNetEnv.dll
+C:\Users\capra\OneDrive\Documentos\GitHub\SafeMangaRead\Backend\SafeMangaRead\SafeMangaRead.Api\bin\Debug\net6.0\Sprache.dll

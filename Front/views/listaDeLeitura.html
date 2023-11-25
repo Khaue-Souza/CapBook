@@ -52,23 +52,28 @@
 
     <div class="col-12 container">
         <div class="filters-panel">
-            <input type="search" id="filter-input" placeholder="Filter" oninput="applyFilters()">
+            <h3>Filtros</h3>
+            <input type="search" id="filter-input" placeholder="Nome do manga" oninput="applyFilters()">
             <div class="filter-group">
                 <h3>Lista Por Status</h3>
                 <select id="status-filter">
                 </select>
             </div>
             <div class="filter-group">
-                <h3>Filtros</h3>
+                <h3>Formato</h3>
                 <select id="format-filter" onchange="applyFilters()">
-                    <option value="" disabled selected>Formato</option>
+                    <!-- <option value="" disabled selected>Formato</option> -->
                     <option value="manga">Manga</option>
                     <option value="novel">Novel</option>
                     <option value="one_shot">ONE_SHOT</option>
                 </select>
+                <h3>Gênero</h3>
+                <select id="genres-filter" onchange="applyFilters()" placeholder="Filter" style="display: none;"
+                    multiple>
+                </select>
 
+                <h3>Origem</h3>
                 <select id="country-filter" onchange="applyFilters()">
-                    <option value="" disabled selected>Origem</option>
                     <option value="Japão">Japão</option>
                     <option value="Coreia do Sul">Coreia do Sul</option>
                     <option value="China">China</option>
@@ -188,7 +193,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <!-- Seu script JS -->
-    <script src="../src/search.js"></script>
+    <!-- <script src="../src/search.js"></script> -->
     <script src="../src/checkLoginStatus.js"></script>
     <script src="../src/listaDeLeitura.js"></script>
 </body>

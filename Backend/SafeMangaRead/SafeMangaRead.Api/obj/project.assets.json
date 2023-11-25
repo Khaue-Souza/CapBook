@@ -46,6 +46,19 @@
           }
         }
       },
+      "BCrypt.Net-Core/1.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BCrypt.Net-Core.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/BCrypt.Net-Core.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
       "dotenv.net/3.1.3": {
         "type": "package",
         "compile": {
@@ -2443,6 +2456,29 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "BCrypt.Net-Core/1.6.0": {
+      "sha512": "hsKiHGjrnlDW05MzuzzlD9gNP8YOW2KbZ+FbvISrilsKJJ76tXKhWey6psZX5sd7DczNpSU2U6ldjPoblk8BLw==",
+      "type": "package",
+      "path": "bcrypt.net-core/1.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bcrypt.net-core.1.6.0.nupkg.sha512",
+        "bcrypt.net-core.nuspec",
+        "lib/net40/BCrypt.Net-Core.dll",
+        "lib/net40/BCrypt.Net-Core.pdb",
+        "lib/net45/BCrypt.Net-Core.dll",
+        "lib/net45/BCrypt.Net-Core.pdb",
+        "lib/net451/BCrypt.Net-Core.dll",
+        "lib/net451/BCrypt.Net-Core.pdb",
+        "lib/net452/BCrypt.Net-Core.dll",
+        "lib/net452/BCrypt.Net-Core.pdb",
+        "lib/netstandard1.3/BCrypt.Net-Core.dll",
+        "lib/netstandard1.3/BCrypt.Net-Core.pdb",
+        "lib/netstandard2.0/BCrypt.Net-Core.dll",
+        "lib/netstandard2.0/BCrypt.Net-Core.pdb"
       ]
     },
     "dotenv.net/3.1.3": {
@@ -7690,6 +7726,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BCrypt.Net-Core >= 1.6.0",
       "DotNetEnv >= 2.5.0",
       "Microsoft.EntityFrameworkCore >= 7.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.11",
@@ -7700,19 +7737,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\khaue\\.nuget\\packages\\": {}
+    "C:\\Users\\capra\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
+      "projectUniqueName": "C:\\Users\\capra\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
       "projectName": "SafeMangaRead.Api",
-      "projectPath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
-      "packagesPath": "C:\\Users\\khaue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\khaue\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\obj\\",
+      "projectPath": "C:\\Users\\capra\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\SafeMangaRead.Api.csproj",
+      "packagesPath": "C:\\Users\\capra\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\capra\\OneDrive\\Documentos\\GitHub\\SafeMangaRead\\Backend\\SafeMangaRead\\SafeMangaRead.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\khaue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\capra\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7738,6 +7775,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "BCrypt.Net-Core": {
+            "target": "Package",
+            "version": "[1.6.0, )"
+          },
           "DotNetEnv": {
             "target": "Package",
             "version": "[2.5.0, )"
@@ -7788,7 +7829,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

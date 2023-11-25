@@ -127,7 +127,7 @@ table {
 }
 
 .name-column {
-  width: 50%; /* Ajuste conforme necessário para dar mais espaço para o nome */
+  width: 40%; /* Ajuste conforme necessário para dar mais espaço para o nome */
   word-wrap: break-word; /* Isso permite que o texto quebre e vá para a próxima linha */
 }
 
@@ -145,7 +145,7 @@ tr:hover {
 .container {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: auto;
   margin-top: 20px;
   justify-content: space-between;
 }
@@ -157,6 +157,7 @@ tr:hover {
 
 .manga-list {
   flex: 3;
+
 }
 
 /* Estilos para os filtros */

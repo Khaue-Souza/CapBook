@@ -99,3 +99,61 @@ footer {
     margin-top: 10px;
   }
 }
+/* Estilos base para o corpo e o contêiner */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+}
+
+#manga-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza o contêiner na página */
+}
+
+/* Estilos para os cartões de mangá */
+.manga-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden; /* Garante que a imagem não ultrapasse os cantos arredondados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.manga-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para a imagem do mangá */
+.manga-card img {
+  width: 100%;
+  display: block; /* Remove espaços abaixo da imagem */
+  border-bottom: 1px solid #eaeaea; /* Linha separadora entre imagem e texto */
+}
+
+/* Estilos para o link do título */
+.manga-card a {
+  display: block; /* Faz o link preencher o bloco inteiro */
+  padding: 10px; /* Espaçamento interno */
+  color: #333; /* Cor do texto */
+  text-decoration: none; /* Remove o sublinhado */
+  font-weight: bold; /* Deixa o texto em negrito */
+  text-align: center; /* Centraliza o texto */
+  font-size: 14px; /* Tamanho do texto */
+}
+
+.manga-card a:hover {
+  background-color: #f7f7f7; /* Cor de fundo ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #manga-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

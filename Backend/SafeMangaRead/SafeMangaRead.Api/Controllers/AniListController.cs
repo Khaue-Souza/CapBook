@@ -132,5 +132,70 @@ namespace SafeMangaRead.Controllers
 
             return Ok(responseBody);
         }
+        [HttpGet("popular")]
+        public async Task<IActionResult> GetPopularMangas()
+        {
+            var httpClient = new HttpClient();
+
+            var query = @"
+        query ($page: Int, $perPage: Int) {
+          Page (page: $page, perPage: $perPage) {
+            media (type: MANGA, sort: POPULARITY_DESC) {
+              id
+              title {
+                romaji
+                english
+                native
+              }
+              coverImage {
+                extraLarge
+                large
+                medium
+                color
+              }
+              startDate {
+                year
+                month
+                day
+              }
+              endDate {
+                year
+                month
+                day
+              }
+              status
+              genres
+              averageScore
+              popularity
+              chapters
+              volumes
+            }
+          }
+        }";
+
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri("https://graphql.anilist.co"),
+                Content = new StringContent(
+                    JsonConvert.SerializeObject(new
+                    {
+                        query = query,
+                        variables = new { page = 1, perPage = 40 }
+                    }),
+                    Encoding.UTF8, "application/json")
+            };
+
+            var response = await httpClient.SendAsync(request);
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return BadRequest("Could not fetch popular mangas from AniList.");
+            }
+
+            return Ok(responseBody);
+        }
+
     }
 }

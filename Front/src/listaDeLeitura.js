@@ -8,17 +8,18 @@ document.addEventListener("DOMContentLoaded", function() {
 async function fetchListaDeLeitura() {
   const usuarioId = localStorage.getItem('usuarioId');
 
-
+console.log(usuarioId)
   if (!usuarioId) {
       console.error('Usuário não está logado');
-      return;
+      return ;
   }
 
   try {
       const response = await fetch(`https://safemangaread.azurewebsites.net/api/ListaDeLeitura/usuario/${usuarioId}`);
       if (!response.ok) {
-          throw new Error('Falha ao buscar lista de leitura');
+          return;
       }
+      
       const listaDeLeitura = await response.json();
       window.allMangas = listaDeLeitura; 
       createGenreFilterOptions();

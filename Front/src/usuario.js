@@ -41,6 +41,11 @@ async function postData(data) {
         limpa()
         // Mensagem de inserido
         inserido()
+        
+        setTimeout(function() {
+          window.location.href = "../views/login.html";
+        }, 3000);
+        // window.location.href = "../views/login.html";
       }
     })
     .catch((error) => {
@@ -48,6 +53,8 @@ async function postData(data) {
     })
 
 }
+
+
 
 // Função para verificar se os dois campos de senha correspondem
 function confirmaSenha() {
@@ -84,7 +91,7 @@ function inserido() {
   // Atribui Id a ela
   paragrafo.id = "inserido";
   //  Cria o texto que irá aparecer
-  const conteudo = document.createTextNode('Usuário cadastrado com sucesso!');
+  const conteudo = document.createTextNode('Usuário cadastrado com sucesso! Redirecionando para tela de login');
   // Atribui o texto dentro do paragrafo
   paragrafo.appendChild(conteudo);
   // Atribui uma classe de css no paragrafo

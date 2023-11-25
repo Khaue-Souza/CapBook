@@ -2,6 +2,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.container{
+  height: 100vh;
+}
+
 #mangaDetails {
     display: flex;
     padding: 20px;

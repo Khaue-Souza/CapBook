@@ -1,7 +1,7 @@
 // Função para buscar os mangás populares
 function fetchPopularMangas() {
     // URL da sua API que retorna os mangás populares
-    const apiUrl = 'http://localhost:5114/api/Anilist/popular';
+    const apiUrl = 'https://safemangaread.azurewebsites.net/api/Anilist/popular';
   
     fetch(apiUrl)
       .then(response => {

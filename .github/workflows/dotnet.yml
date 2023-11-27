@@ -27,9 +27,6 @@ jobs:
     - name: Test with coverlet
       run: dotnet test ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./TestResults/Coverage/
     
-    - name: List files in Coverage directory
-      run: ls -R ./TestResults/Coverage
-    
     - name: Show current directory
       run: pwd
 

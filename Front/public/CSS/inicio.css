@@ -2,13 +2,6 @@ main{
   height: auto;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
 header {
   background-color: #333;
   color: white;
@@ -57,10 +50,6 @@ nav a:hover {
   text-align: center;
   background-color: #fff; /* Adicionado para unificar estilo com main de style.css */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adicionado para unificar estilo com main de style.css */
-}
-
-.manga-card img {
-  max-width: 100%;
 }
 
 footer {
@@ -113,6 +102,7 @@ body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   background-color: #f0f0f0;
+  padding: 0;
 }
 
 #manga-container {
@@ -140,6 +130,7 @@ body {
 
 /* Estilos para a imagem do mangá */
 .manga-card img {
+  max-width: 100%;
   width: 100%;
   display: block; /* Remove espaços abaixo da imagem */
   border-bottom: 1px solid #eaeaea; /* Linha separadora entre imagem e texto */

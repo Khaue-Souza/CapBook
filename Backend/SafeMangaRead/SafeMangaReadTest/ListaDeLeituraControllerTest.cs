@@ -9,7 +9,6 @@ namespace SafeMangaReadTest
 {
     public class ListaDeLeituraControllerTest
     {
-        private readonly APIdbcontext dbContext; // Mova a declaração para o escopo da classe
 
         [Fact]
         private APIdbcontext CreateDbContextInMemory()
@@ -18,21 +17,21 @@ namespace SafeMangaReadTest
                 .UseInMemoryDatabase(databaseName: "TestDatabase")
                 .Options;
 
-            return new APIdbcontext(options);
-        }
+            var dbContext = new APIdbcontext(options);
 
+            
+            Assert.NotNull(dbContext);
+
+            return dbContext;
+        }
 
         [Fact]
         public async Task PostListaDeLeituraTest()
         {
-            // Arrange
             using var dbContext = CreateDbContextInMemory();
             var usuarioTeste = new Usuario { UsuarioId = 10, UsuarioName = "Teste" }; 
             dbContext.usuarios.Add(usuarioTeste);
             await dbContext.SaveChangesAsync();
-
-
-
 
             var controller = new ListaDeLeituraController(dbContext);
             var newListaDeLeitura = new ListaDeLeitura
@@ -57,14 +56,11 @@ namespace SafeMangaReadTest
 
             };
 
-            // Act
             var result = await controller.AddMangaToList(newListaDeLeitura);
 
-            // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
             var returnValue = okResult.Value;
 
-            // Usando reflexão para acessar as propriedades do objeto retornado
             var properties = returnValue.GetType().GetProperties();
             var statusProperty = properties.FirstOrDefault(p => p.Name == "status");
             var isSuccessProperty = properties.FirstOrDefault(p => p.Name == "isSuccess");
@@ -82,7 +78,7 @@ namespace SafeMangaReadTest
         [Fact]
         public async Task PutListaDeLeituraTest()
         {
-            // Arrange
+
             using var dbContext = CreateDbContextInMemory();
             var existingListaDeLeitura = new ListaDeLeitura
             {
@@ -109,11 +105,8 @@ namespace SafeMangaReadTest
 
             var controller = new ListaDeLeituraController(dbContext);
             
-
-            // Act
             var result = await controller.PutListaDeLeitura(updatedListaDeLeitura);
 
-            // Assert
             Assert.IsType<NoContentResult>(result);
             var listaDeLeitura = await dbContext.listasDeLeitura.FindAsync(existingListaDeLeitura.ListaDeLeituraId);
             Assert.Equal(2, listaDeLeitura.ProgressoCapitulo);
@@ -123,7 +116,7 @@ namespace SafeMangaReadTest
         [Fact]
         public async Task GetListaDeLeituraTest()
         {
-            // Arrange
+
             using var dbContext = CreateDbContextInMemory();
             var listaDeLeitura = new ListaDeLeitura
             {
@@ -135,10 +128,8 @@ namespace SafeMangaReadTest
 
             var controller = new ListaDeLeituraController(dbContext);
 
-            // Act
             var result = await controller.GetListaDeLeitura(14);
 
-            // Assert
             var actionResult = Assert.IsType<ActionResult<ListaDeLeitura>>(result);
             var returnedListaDeLeitura = Assert.IsType<ListaDeLeitura>(actionResult.Value);
             Assert.Equal(14, returnedListaDeLeitura.ListaDeLeituraId);
@@ -146,7 +137,7 @@ namespace SafeMangaReadTest
         [Fact]
         public async Task DeleteMangaFromUserListTest()
         {
-            // Arrange
+
             using var dbContext = CreateDbContextInMemory();
             var listaDeLeitura = new ListaDeLeitura { UsuarioId = 3, MangaId = 100 };
             dbContext.listasDeLeitura.Add(listaDeLeitura);
@@ -154,10 +145,8 @@ namespace SafeMangaReadTest
 
             var controller = new ListaDeLeituraController(dbContext);
 
-            // Act
             var result = await controller.DeleteMangaFromUserList(3, 100);
 
-            // Assert
             Assert.IsType<NoContentResult>(result);
             var itemDeleted = await dbContext.listasDeLeitura
                                              .FirstOrDefaultAsync(l => l.UsuarioId == 3 && l.MangaId == 100);
@@ -167,7 +156,6 @@ namespace SafeMangaReadTest
         [Fact]
         public async Task GetListasPorUsuarioTest()
         {
-            // Arrange
             using var dbContext = CreateDbContextInMemory();
             var listaDeLeitura1 = new ListaDeLeitura { UsuarioId = 4, MangaId = 100 };
             var listaDeLeitura2 = new ListaDeLeitura { UsuarioId = 4, MangaId = 101 };
@@ -176,10 +164,8 @@ namespace SafeMangaReadTest
 
             var controller = new ListaDeLeituraController(dbContext);
 
-            // Act
             var result = await controller.GetListasPorUsuario(4);
 
-            // Assert
             var actionResult = Assert.IsType<ActionResult<IEnumerable<ListaDeLeitura>>>(result);
             var listas = Assert.IsAssignableFrom<IEnumerable<ListaDeLeitura>>(actionResult.Value);
             Assert.Equal(2, listas.Count());
@@ -189,7 +175,6 @@ namespace SafeMangaReadTest
         [Fact]
         public async Task MangaNaListaDeLeituraTest()
         {
-            // Arrange
             using var dbContext = CreateDbContextInMemory();
             var listaDeLeitura = new ListaDeLeitura { UsuarioId = 5, MangaId = 100 };
             dbContext.listasDeLeitura.Add(listaDeLeitura);
@@ -197,10 +182,8 @@ namespace SafeMangaReadTest
 
             var controller = new ListaDeLeituraController(dbContext);
 
-            // Act
             var result = await controller.MangaNaListaDeLeitura(5, 100);
 
-            // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
             var mangaNaLista = Assert.IsType<ListaDeLeitura>(okResult.Value);
             Assert.NotNull(mangaNaLista);
@@ -211,11 +194,9 @@ namespace SafeMangaReadTest
         [Fact]
         public async Task GetListaTest()
         {
-            // Arrange
             using var dbContext = CreateDbContextInMemory();
             var controller = new ListaDeLeituraController(dbContext);
 
-            // Insira uma lista no banco de dados de teste
             var newListaDeLeitura = new ListaDeLeitura
             {
                 UsuarioId = 157,
@@ -240,12 +221,8 @@ namespace SafeMangaReadTest
             dbContext.listasDeLeitura.Add(newListaDeLeitura);
             await dbContext.SaveChangesAsync();
 
-
-            // Act
             var result = await controller.GetLista();
 
-
-            // Verifique se a lista não é nula
             Assert.NotNull(result.Value);
         }
 

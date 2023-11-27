@@ -61,8 +61,9 @@ jobs:
       uses: sonarsource/sonarcloud-github-action@master
       with:
         args: >
-          -Dsonar.cs.opencover.reportsPaths=./TestResults/Coverage/*.opencover.xml
-          -Dsonar.exclusions=**/obj/**/*.*,**/*Migrations*.*,**/*.Tests.*
+          -Dsonar.cs.opencover.reportsPaths=/home/runner/work/SafeMangaRead/SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/coverage.opencover.xml
+          -Dsonar.coverage.exclusions=**/TestResults/**/*
+          -Dsonar.exclusions=**/obj/**/*.*,**/*Migrations*.*,**/*.Tests.*,**/TestResults/**/*
           -Dsonar.test.exclusions=**/*Tests.*
           -Dsonar.projectKey=Khaue-Souza_SafeMangaRead
           -Dsonar.organization=khaue-souza

@@ -41,6 +41,7 @@ jobs:
         ls
         cd Coverage
         ls
+        pwd
     - name: Generate coverage report
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool

@@ -19,13 +19,13 @@ jobs:
         dotnet-version: '6.0.x' # Pode ajustar para a versão do .NET que você está usando
 
     - name: Restore dependencies
-      run: dotnet restore SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj
+      run: dotnet restore /SafeMangaRead ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj
 
     - name: Build
-      run: dotnet build SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-restore --configuration Release
+      run: dotnet build /SafeMangaRead ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-restore --configuration Release
 
     - name: Test with coverlet
-      run: dotnet test SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
+      run: dotnet test /SafeMangaRead ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
       
     - name: Generate coverage report
       run: |

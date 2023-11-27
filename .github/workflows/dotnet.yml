@@ -62,7 +62,8 @@ jobs:
       with:
         args: >
           -Dsonar.cs.opencover.reportsPaths=./TestResults/Coverage/*.opencover.xml
-          -Dsonar.exclusions=**/*Migrations*.*,**/*.Tests.*,**/obj/**/*.*
+          -Dsonar.coverage.exclusions=**/*Tests*.cs
+          -Dsonar.exclusions=**/*Tests*/**, **/obj/**/*.*
           -Dsonar.projectKey=Khaue-Souza_SafeMangaRead
           -Dsonar.organization=khaue-souza
           -Dsonar.host.url=https://sonarcloud.io

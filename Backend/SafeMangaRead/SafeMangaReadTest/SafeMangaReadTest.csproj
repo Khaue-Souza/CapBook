@@ -30,4 +30,7 @@
     </PackageReference>
   </ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\SafeMangaRead.Api\SafeMangaRead.Api.csproj" />
+	</ItemGroup>
 </Project>

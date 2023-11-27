@@ -57,11 +57,15 @@ jobs:
         name: code-coverage-report
         path: ./TestResults/Coverage/Report
 
+    - name: Display coverage file content
+      run: cat ${{ github.workspace }}/Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/coverage.opencover.xml
+
+
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       with:
         args: >
-          -Dsonar.cs.opencover.reportsPaths=/home/runner/work/SafeMangaRead/SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/coverage.opencover.xml
+          -Dsonar.cs.opencover.reportsPaths=${{ github.workspace }}Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/coverage.opencover.xml
           -Dsonar.coverage.exclusions=**/TestResults/**/*
           -Dsonar.exclusions=**/obj/**/*.*,**/*Migrations*.*,**/*.Tests.*,**/TestResults/**/*
           -Dsonar.test.exclusions=**/*Tests.*

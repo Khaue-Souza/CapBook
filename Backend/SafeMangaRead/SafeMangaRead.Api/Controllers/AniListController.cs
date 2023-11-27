@@ -53,7 +53,18 @@ namespace SafeMangaRead.Controllers
 
             var response = await httpClient.SendAsync(request);
             var responseBody = await response.Content.ReadAsStringAsync();
+            var jsonResponse = JObject.Parse(responseBody);
 
+            // Filtrando os resultados com base no título
+            var filteredMedia = jsonResponse["data"]["Page"]["media"]
+                .Where(manga =>
+                    (manga["title"]["romaji"]?.ToString().IndexOf(title, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                    (manga["title"]["english"]?.ToString().IndexOf(title, StringComparison.OrdinalIgnoreCase) >= 0)
+                )
+                .ToList();
+
+            // Atualizando a resposta JSON com os resultados filtrados
+            jsonResponse["data"]["Page"]["media"] = new JArray(filteredMedia);
 
             return Ok(responseBody);
         }

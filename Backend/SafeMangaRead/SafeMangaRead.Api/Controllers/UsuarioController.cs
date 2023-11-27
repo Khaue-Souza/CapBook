@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using ListaDeLeituraApi.Models;
-using System.Text.RegularExpressions;
 
 namespace SafeMangaRead.Controllers
 {
@@ -84,20 +83,6 @@ namespace SafeMangaRead.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-
-            var userContext = await _context.usuarios.FirstOrDefaultAsync(t => t.UsuarioEmail == usuario.UsuarioEmail);
-
-            if (userContext != null)
-            {
-                return BadRequest(new { status = 400, isSuccess = false, message = "Já existe um usuário com este e-mail!" });
-            }
-
-            if (!IsPasswordValid(usuario.UsuarioSenha))
-            {
-                return BadRequest(new { status = 400, isSuccess = false, message = "A senha deve ter no mínimo 8 caracteres, incluindo pelo menos uma letra maiúscula e um caractere especial!" });
-            }
-
-
             if (_context.usuarios == null)
             {
                 return Problem("Entity set 'APIdbcontext.usuarios'  is null.");
@@ -156,9 +141,7 @@ namespace SafeMangaRead.Controllers
         [HttpPost("/login")]
         public async Task<ActionResult> PostUsuarioC(Usuario usuario)
         {
-            
             var userContext = await _context.usuarios.FirstOrDefaultAsync(t => t.UsuarioEmail == usuario.UsuarioEmail);
-
 
             if (userContext != null && BCrypt.Net.BCrypt.Verify(usuario.UsuarioSenha, userContext.UsuarioSenha))
             {
@@ -171,25 +154,8 @@ namespace SafeMangaRead.Controllers
             }
         }
 
-        private bool IsPasswordValid(string senha)
-        {
-            if (senha.Length < 8)
-            {
-                return false;
-            }
 
-            if (!Regex.IsMatch(senha, @"[A-Z]"))
-            {
-                return false;
-            }
 
-            if (!Regex.IsMatch(senha, @"[!@#$%^&*()]"))
-            {
-                return false;
-            }
-
-            return true;
-        }
 
     }
 }

@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SafeMangaRead.Controllers;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace SafeMangaReadTest
 {

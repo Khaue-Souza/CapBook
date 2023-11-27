@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using SafeMangaRead.Controllers;
 using ListaDeLeituraApi.Models;
 using MangaNovelsAPI.Models;
-using Xunit;
 using UsuarioAPI.Models;
 
 namespace SafeMangaReadTest
@@ -28,7 +27,7 @@ namespace SafeMangaReadTest
         {
             // Arrange
             using var dbContext = CreateDbContextInMemory();
-            var usuarioTeste = new Usuario { UsuarioId = 1, UsuarioName = "Teste" }; 
+            var usuarioTeste = new Usuario { UsuarioId = 10, UsuarioName = "Teste" }; 
             dbContext.usuarios.Add(usuarioTeste);
             await dbContext.SaveChangesAsync();
 
@@ -38,7 +37,7 @@ namespace SafeMangaReadTest
             var controller = new ListaDeLeituraController(dbContext);
             var newListaDeLeitura = new ListaDeLeitura
             {
-                UsuarioId = 1,
+                UsuarioId = 10,
                 MangaId = 30011,
                 AnoDePublicacao = 1999,
                 Banner = "https://s4.anilist.co/file/anilistcdn/media/manga/banner/30011-pkX1O0EFqvV7.jpg",
@@ -87,8 +86,8 @@ namespace SafeMangaReadTest
             using var dbContext = CreateDbContextInMemory();
             var existingListaDeLeitura = new ListaDeLeitura
             {
-                ListaDeLeituraId = 1,
-                UsuarioId = 1,
+                ListaDeLeituraId = 20,
+                UsuarioId = 20,
                 MangaId = 30011,
                 AnoDePublicacao = 1999,
                 DataConclusao = null,
@@ -128,7 +127,7 @@ namespace SafeMangaReadTest
             using var dbContext = CreateDbContextInMemory();
             var listaDeLeitura = new ListaDeLeitura
             {
-                ListaDeLeituraId = 1,
+                ListaDeLeituraId = 14,
 
             };
             dbContext.listasDeLeitura.Add(listaDeLeitura);
@@ -137,12 +136,118 @@ namespace SafeMangaReadTest
             var controller = new ListaDeLeituraController(dbContext);
 
             // Act
-            var result = await controller.GetListaDeLeitura(1);
+            var result = await controller.GetListaDeLeitura(14);
 
             // Assert
             var actionResult = Assert.IsType<ActionResult<ListaDeLeitura>>(result);
             var returnedListaDeLeitura = Assert.IsType<ListaDeLeitura>(actionResult.Value);
-            Assert.Equal(1, returnedListaDeLeitura.ListaDeLeituraId);
+            Assert.Equal(14, returnedListaDeLeitura.ListaDeLeituraId);
         }
+        [Fact]
+        public async Task DeleteMangaFromUserListTest()
+        {
+            // Arrange
+            using var dbContext = CreateDbContextInMemory();
+            var listaDeLeitura = new ListaDeLeitura { UsuarioId = 3, MangaId = 100 };
+            dbContext.listasDeLeitura.Add(listaDeLeitura);
+            await dbContext.SaveChangesAsync();
+
+            var controller = new ListaDeLeituraController(dbContext);
+
+            // Act
+            var result = await controller.DeleteMangaFromUserList(3, 100);
+
+            // Assert
+            Assert.IsType<NoContentResult>(result);
+            var itemDeleted = await dbContext.listasDeLeitura
+                                             .FirstOrDefaultAsync(l => l.UsuarioId == 3 && l.MangaId == 100);
+            Assert.Null(itemDeleted);
+        }
+
+        [Fact]
+        public async Task GetListasPorUsuarioTest()
+        {
+            // Arrange
+            using var dbContext = CreateDbContextInMemory();
+            var listaDeLeitura1 = new ListaDeLeitura { UsuarioId = 4, MangaId = 100 };
+            var listaDeLeitura2 = new ListaDeLeitura { UsuarioId = 4, MangaId = 101 };
+            dbContext.listasDeLeitura.AddRange(listaDeLeitura1, listaDeLeitura2);
+            await dbContext.SaveChangesAsync();
+
+            var controller = new ListaDeLeituraController(dbContext);
+
+            // Act
+            var result = await controller.GetListasPorUsuario(4);
+
+            // Assert
+            var actionResult = Assert.IsType<ActionResult<IEnumerable<ListaDeLeitura>>>(result);
+            var listas = Assert.IsAssignableFrom<IEnumerable<ListaDeLeitura>>(actionResult.Value);
+            Assert.Equal(2, listas.Count());
+        }
+
+
+        [Fact]
+        public async Task MangaNaListaDeLeituraTest()
+        {
+            // Arrange
+            using var dbContext = CreateDbContextInMemory();
+            var listaDeLeitura = new ListaDeLeitura { UsuarioId = 5, MangaId = 100 };
+            dbContext.listasDeLeitura.Add(listaDeLeitura);
+            await dbContext.SaveChangesAsync();
+
+            var controller = new ListaDeLeituraController(dbContext);
+
+            // Act
+            var result = await controller.MangaNaListaDeLeitura(5, 100);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var mangaNaLista = Assert.IsType<ListaDeLeitura>(okResult.Value);
+            Assert.NotNull(mangaNaLista);
+            Assert.Equal(5, mangaNaLista.UsuarioId);
+            Assert.Equal(100, mangaNaLista.MangaId);
+        }
+
+        [Fact]
+        public async Task GetListaTest()
+        {
+            // Arrange
+            using var dbContext = CreateDbContextInMemory();
+            var controller = new ListaDeLeituraController(dbContext);
+
+            // Insira uma lista no banco de dados de teste
+            var newListaDeLeitura = new ListaDeLeitura
+            {
+                UsuarioId = 157,
+                MangaId = 30011,
+                AnoDePublicacao = 1999,
+                Banner = "https://s4.anilist.co/file/anilistcdn/media/manga/banner/30011-pkX1O0EFqvV7.jpg",
+                DataConclusao = null,
+                DataInicio = DateTime.Parse("2023-11-26"),
+                FormatoManga = "MANGA",
+                Generos = "Action, Adventure, Supernatural",
+                Images = "https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/nx30011-9yUF1dXWgDOx.jpg",
+                NomeMangaEnglish = "Naruto",
+                NomeMangaNative = "NARUTO -ナルト-",
+                NomeMangaRomaji = "NARUTO",
+                NomesAlternativos = "נארוטו, Наруто",
+                Notas = "",
+                PaisDeOrigem = "Japão",
+                ProgressoCapitulo = 0,
+                StatusManga = "Completo",
+
+            };
+            dbContext.listasDeLeitura.Add(newListaDeLeitura);
+            await dbContext.SaveChangesAsync();
+
+
+            // Act
+            var result = await controller.GetLista();
+
+
+            // Verifique se a lista não é nula
+            Assert.NotNull(result.Value);
+        }
+
     }
 }

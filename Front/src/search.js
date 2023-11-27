@@ -34,9 +34,9 @@ async function searchManga() {
 }
 
 function footerDivCorrect() {
-    let searchTerm = document.getElementById('searchInput').value;
-    let div = document.getElementById('divMeio');
-    let divOnOff = document.getElementById('middleDivOnOff');
+    var searchTerm = document.getElementById('searchInput').value;
+    var div = document.getElementById('divMeio');
+    var divOnOff = document.getElementById('middleDivOnOff');
 
     if (div && divOnOff) {
         if (searchTerm != null && searchTerm.length > 0) {

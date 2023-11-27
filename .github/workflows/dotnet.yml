@@ -19,21 +19,18 @@ jobs:
         dotnet-version: '6.0.x' # Pode ajustar para a versão do .NET que você está usando
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj
 
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-restore --configuration Release
 
     - name: Test with coverlet
-      run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
+      run: dotnet test SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
       
     - name: Generate coverage report
-      run: dotnet tool install --global dotnet-reportgenerator-globaltool
-    - name: Install ReportGenerator tool
-      run: dotnet tool install --global dotnet-reportgenerator-globaltool
-    - name: Generate coverage report
-      run: reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:Html
-
+      run: |
+        dotnet tool install --global dotnet-reportgenerator-globaltool
+        reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:Html
 
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2

@@ -28,8 +28,9 @@ jobs:
       run: dotnet test ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./TestResults/Coverage/
     
     - name: Show current directory
-      run: pwd
-
+      run: |
+        pwd
+        ls
     - name: Generate coverage report
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool

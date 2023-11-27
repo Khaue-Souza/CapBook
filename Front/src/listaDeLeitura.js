@@ -239,7 +239,7 @@ function atualizarListaDeMangasPorStatus(listaDeLeitura) {
                       </div>
                   </div>
               </td>
-              <td><a href="mangadetails2.html?id=${manga.mangaId}">
+              <td><a href="mangaDetails2.html?id=${manga.mangaId}">
                     ${manga.nomeMangaRomaji}
                   </a>
               </td>

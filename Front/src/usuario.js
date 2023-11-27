@@ -34,18 +34,19 @@ async function postData(data) {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log("Success:", data.status);
       console.log("Success:", data);
+
       // Caso de certo
-      if (data.status != 404) {
-        // Limpa os campos
+      if (data.status == 201) {
         limpa()
-        // Mensagem de inserido
         inserido()
         
         setTimeout(function() {
           window.location.href = "../views/login.html";
         }, 3000);
-        // window.location.href = "../views/login.html";
+      }else{
+        alert(data.message)
       }
     })
     .catch((error) => {
@@ -107,3 +108,4 @@ function inserido() {
   }, 2000);
 
 }
+

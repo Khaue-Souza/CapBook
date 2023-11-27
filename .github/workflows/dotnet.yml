@@ -49,7 +49,7 @@ jobs:
     - name: Generate coverage report
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool
-        reportgenerator -reports:"/home/runner/work/SafeMangaRead/SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/coverage.opencover.xml" -targetdir:"./TestResults/Coverage/Report" -reporttypes:HtmlInline;xml
+        reportgenerator -reports:"/home/runner/work/SafeMangaRead/SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/coverage.opencover.xml" -targetdir:"./TestResults/Coverage/Report" -reporttypes:Html
 
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2

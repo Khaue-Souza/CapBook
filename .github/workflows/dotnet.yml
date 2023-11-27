@@ -33,6 +33,8 @@ jobs:
         ls
         cd Backend
         ls
+        cd SafeMangaRead
+        ls
     - name: Generate coverage report
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool

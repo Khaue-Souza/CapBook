@@ -31,6 +31,9 @@ jobs:
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool
         reportgenerator -reports:"./TestResults/Coverage/*.opencover.xml" -targetdir:"./TestResults/Coverage/Report" -reporttypes:HtmlInline;xml
+    
+    - name: List files in coverage directory
+      run: ls -R ./TestResults/Coverage
 
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2

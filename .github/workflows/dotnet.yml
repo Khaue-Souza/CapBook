@@ -31,6 +31,8 @@ jobs:
       run: |
         pwd
         ls
+        cd Backend
+        ls
     - name: Generate coverage report
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool

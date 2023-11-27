@@ -35,6 +35,8 @@ jobs:
         ls
         cd SafeMangaRead
         ls
+        cd SafeMangaReadTest
+        ls
     - name: Generate coverage report
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool

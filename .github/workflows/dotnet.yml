@@ -62,7 +62,7 @@ jobs:
       with:
         args: >
           -Dsonar.cs.opencover.reportsPaths=./TestResults/Coverage/Report/*.opencover.xml
-          # Restante dos seus parâmetros...
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          -Dsonar.exclusions=**/*Migrations*.*,**/*.Tests.*,**/obj/**/*.*
+          -Dsonar.projectKey=Khaue-Souza_SafeMangaRead
+          -Dsonar.organization=khaue-souza
+          -Dsonar.host.url=https://sonarcloud.io

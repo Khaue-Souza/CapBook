@@ -2,9 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using MangaNovelsAPI.Models;
 using UsuarioAPI.Models;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using ListaDeLeituraApi.Models;
 using System.Text.RegularExpressions;
 
 namespace SafeMangaRead.Controllers

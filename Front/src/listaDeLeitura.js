@@ -277,7 +277,7 @@ function openUpdateModal(mangaId) {
 
 function preencherModalComDados(manga) {
   console.log("Dados recebidos no preencherModalComDados:", manga);
-  var mediaGlobal = manga;
+  mediaGlobal = manga;
   if (manga) {
       // Atualiza os valores dos campos de texto
       document.getElementById('status-manga').value = manga.statusManga || '';
@@ -302,8 +302,8 @@ function preencherModalComDados(manga) {
 }
 
 function confirmDelete(usuarioId, id) {
-  var globalUsuarioId = usuarioId;
-  var globalMangaId = id;
+  globalUsuarioId = usuarioId;
+  globalMangaId = id;
   console.log(" ID do usuario:" + globalUsuarioId + "Id do manga:" + globalMangaId)
   
   $('#deleteConfirmationModal').modal('show');
@@ -366,6 +366,7 @@ async function addMangaToList() {
   const dataConclusao = document.getElementById('data-conclusao').value;
   const notas = document.getElementById('notas').value;
 
+  const nomeMangaEnglish = mediaGlobal.nomeMangaEnglish ;
   const nomeMangaRomaji  = mediaGlobal.nomeMangaRomaji  ;
 
 

@@ -42,6 +42,10 @@ jobs:
         cd Coverage
         ls
         pwd
+    
+    - name: Install xml tool
+      run: sudo apt-get update && sudo apt-get install -y xmlstarlet
+
     - name: Generate coverage report
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool

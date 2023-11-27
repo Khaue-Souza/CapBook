@@ -277,7 +277,7 @@ function openUpdateModal(mangaId) {
 
 function preencherModalComDados(manga) {
   console.log("Dados recebidos no preencherModalComDados:", manga);
-  var mediaGlobal = manga;
+  let mediaGlobal = manga;
   if (manga) {
       // Atualiza os valores dos campos de texto
       document.getElementById('status-manga').value = manga.statusManga || '';
@@ -302,8 +302,8 @@ function preencherModalComDados(manga) {
 }
 
 function confirmDelete(usuarioId, id) {
-  var globalUsuarioId = usuarioId;
-  var globalMangaId = id;
+  let globalUsuarioId = usuarioId;
+  let globalMangaId = id;
   console.log(" ID do usuario:" + globalUsuarioId + "Id do manga:" + globalMangaId)
   
   $('#deleteConfirmationModal').modal('show');

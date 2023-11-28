@@ -37,8 +37,6 @@ jobs:
         ls
         cd SafeMangaReadTest
         ls
-        cd TestResults
-        ls
 
     - name: Generate coverage report
       run: |

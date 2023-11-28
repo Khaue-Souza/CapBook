@@ -38,9 +38,6 @@ jobs:
         cd SafeMangaReadTest
         ls
 
-    - name: List files after tests
-      run: ls -R ./Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/
-
     - name: Generate coverage report
       run: |
         dotnet tool install --global dotnet-reportgenerator-globaltool

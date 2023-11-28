@@ -50,7 +50,7 @@ jobs:
         path: ./TestResults/Coverage/Report
 
     - name: Display coverage file content
-      run: cat ${{ github.workspace }}/Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/coverage.opencover.xml
+      run: cat ./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml
 
 
     - name: SonarCloud Scan

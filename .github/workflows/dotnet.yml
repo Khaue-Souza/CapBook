@@ -39,7 +39,6 @@ jobs:
         ls
         cd TestResults
         ls
-        cd Coverage
 
     - name: Generate coverage report
       run: |

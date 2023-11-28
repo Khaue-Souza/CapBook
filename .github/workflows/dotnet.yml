@@ -42,7 +42,7 @@ jobs:
         cd Coverage
         ls
         pwd
-        cat /home/runner/work/SafeMangaRead/SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/coverage.opencover.xml
+        cat /home/runner/work/SafeMangaRead/SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest
     
     - name: Install xml tool
       run: sudo apt-get update && sudo apt-get install -y xmlstarlet

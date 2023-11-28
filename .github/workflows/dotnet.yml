@@ -40,9 +40,6 @@ jobs:
         cd TestResults
         ls
         cd Coverage
-        ls
-        pwd
-        cat /home/runner/work/SafeMangaRead/SafeMangaRead/Backend/SafeMangaRead/SafeMangaReadTest
 
     - name: Generate coverage report
       run: |

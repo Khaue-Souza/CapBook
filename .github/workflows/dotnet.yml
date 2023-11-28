@@ -26,38 +26,12 @@ jobs:
 
     - name: Test with coverlet
       run: dotnet test ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./
-    
-    - name: Show current directory
-      run: |
-        pwd
-        ls
-        cd Backend
-        ls
-        cd SafeMangaRead
-        ls
-        cd SafeMangaReadTest
-        ls
-
-    - name: Generate coverage report
-      run: |
-        dotnet tool install --global dotnet-reportgenerator-globaltool
-        reportgenerator -reports:"./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml" -targetdir:"./TestResults/Coverage/Report" -reporttypes:Html
-
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v2
-      with:
-        name: code-coverage-report
-        path: ./TestResults/Coverage/Report
-
-    - name: Display coverage file content
-      run: cat ./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml
-
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       with:
         args: >
-          -Dsonar.cs.opencover.reportsPaths=../../coverage.opencover.xml
+          -Dsonar.cs.opencover.reportsPaths=./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml
           -Dsonar.coverage.exclusions=**/TestResults/**/*
           -Dsonar.exclusions=**/obj/**/*.*,**/*Migrations*.*,**/*.Tests.*,**/TestResults/**/*
           -Dsonar.projectKey=Khaue-Souza_SafeMangaRead

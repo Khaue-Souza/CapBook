@@ -34,7 +34,7 @@ jobs:
       with:
         args: >
           -Dsonar.cs.opencover.reportsPaths=./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml
-          -Dsonar.coverage.exclusions=**/TestResults/**/*,**/Front/**/*
+          -Dsonar.coverage.exclusions=**/Front/**/*
           -Dsonar.exclusions=**/obj/**/*.*,**/*Migrations*.*,**/*.Tests.*,**/TestResults/**/*
           -Dsonar.projectKey=Khaue-Souza_SafeMangaRead
           -Dsonar.organization=khaue-souza

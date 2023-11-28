@@ -29,12 +29,18 @@ jobs:
     - name: Test with coverlet
       run: dotnet test ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./
 
+    - name: Convertendo coverage
+      run: reportgenerator "-reports:./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml" "-targetdir:coveragereport" "-reporttypes:SonarQube"
+
+
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       with:
         args: >
           -Dsonar.cs.opencover.reportsPaths=./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml
           -Dsonar.coverage.exclusions=**/Front/**/*
+          -Dsonar.inclusions=**/Backend/**/*
+          -Dsonar-project.properties=./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml  
           -Dsonar.exclusions=**/obj/**/*.*,**/*Migrations*.*,**/*.Tests.*,**/*.css/**/*,**/*.html/**/*
           -Dsonar.projectKey=Khaue-Souza_SafeMangaRead
           -Dsonar.organization=khaue-souza

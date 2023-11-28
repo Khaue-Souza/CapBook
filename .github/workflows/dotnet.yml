@@ -25,7 +25,7 @@ jobs:
       run: dotnet build ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-restore --configuration Release
 
     - name: Test with coverlet
-      run: dotnet test ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=
+      run: dotnet test ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./
     
     - name: Show current directory
       run: |

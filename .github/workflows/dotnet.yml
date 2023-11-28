@@ -38,6 +38,7 @@ jobs:
           -Dsonar.exclusions=**/obj/**/*.*,**/*Migrations*.*,**/*.Tests.*,**/TestResults/**/*
           -Dsonar.projectKey=Khaue-Souza_SafeMangaRead
           -Dsonar.organization=khaue-souza
+          -Dsonar.projectBaseDir=khaue-souza
           -Dsonar.host.url=https://sonarcloud.io
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

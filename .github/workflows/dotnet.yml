@@ -38,12 +38,11 @@ jobs:
           -Dsonar.exclusions=**/obj/**/*.*,**/*Migrations*.*,**/*.Tests.*,**/TestResults/**/*
           -Dsonar.projectKey=Khaue-Souza_SafeMangaRead
           -Dsonar.organization=khaue-souza
-          -Dsonar.projectBaseDir=khaue-souza
           -Dsonar.host.url=https://sonarcloud.io
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        COVERAGE_PATH: ./Backend/SafeMangaRead/SafeMangaReadTest/TestResults/Coverage/coverage.opencover.xml
+        COVERAGE_PATH: ./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml
         
     - name: CATS
-      run: cat ${{ env.COVERAGE_PATH }}
+      run: cat ./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml

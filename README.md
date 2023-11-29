@@ -31,3 +31,48 @@ Decisão: Recursos avançados podem atrair usuários experientes, mas podem comp
 Link Para a Defesa do tema do portfolio: https://1drv.ms/p/s!AsMFpzmd1T2Tg_YzOXqtMbX7icQyhA?e=Zj9xHu 
 
 Link do Trello com os Backlogs: https://trello.com/invite/b/kxqm5vQ2/ATTIccde654a8e2555dbabe77d5c34f08fd145E2FF6A/plataforma-de-leitura-de-mangas-e-novels
+
+
+
+#Como rodar a aplicação
+Baixe
+Visual Studio Code : https://code.visualstudio.com
+Visual Studio      : https://visualstudio.microsoft.com/pt-br/downloads/
+
+Clone o repositorio do github em uma pasta local
+
+Abra o Backend no Visual Studio
+no arquivo appsettings.json configure a sua conexão com o banco de dados
+
+Abra o Front no Visual Studio Code
+
+
+
+ Monitoramento da Aplicação - Visualização de Logs
+A aplicação também tem suporte para a tecnologia chamada Application Insights como no print a seguir:
+![image](https://github.com/Khaue-Souza/SafeMangaRead/assets/81392244/63d4ff19-d23e-4965-9a36-442ae939e664)
+
+
+Documentação / Tecnologias
+
+Frontend: Hmtl / boostrap / css / js
+
+Backend: C#
+
+DB : Microsoft Azure
+
+Web-server: Microsoft Azure
+
+Servidor: Microsoft Azure
+
+Sonar
+
+
+SonarCloud test
+
+![image](https://github.com/Khaue-Souza/SafeMangaRead/assets/81392244/261154b8-1a18-4ef9-8f38-cb7c61347c66)
+
+link: https://sonarcloud.io/summary/new_code?id=Khaue-Souza_SafeMangaRead
+
+
+

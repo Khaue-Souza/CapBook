@@ -13,9 +13,13 @@ namespace SafeMangaRead.Controllers
     [ApiController]
     public class AnilistController : ControllerBase
     {
+
+        private string urlAniList = "https://graphql.anilist.co";
+
         [HttpGet("search/{title}")]
         public async Task<IActionResult> SearchByTitle(string title)
         {
+
             var httpClient = new HttpClient();
 
             var query = @"
@@ -41,7 +45,7 @@ namespace SafeMangaRead.Controllers
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://graphql.anilist.co"),
+                RequestUri = new Uri(urlAniList),
                 Content = new StringContent(
                     JsonConvert.SerializeObject(new
                     {
@@ -114,10 +118,11 @@ namespace SafeMangaRead.Controllers
                 }";
 
 
+
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://graphql.anilist.co"),
+                RequestUri = new Uri(urlAniList),
                 Content = new StringContent(
                     JsonConvert.SerializeObject(new
                     {
@@ -176,7 +181,7 @@ namespace SafeMangaRead.Controllers
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://graphql.anilist.co"),
+                RequestUri = new Uri(urlAniList),
                 Content = new StringContent(
                     JsonConvert.SerializeObject(new
                     {

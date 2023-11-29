@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
-
 async function fetchListaDeLeitura() {
   const usuarioId = localStorage.getItem('usuarioId');
 
@@ -134,14 +132,10 @@ function applyFilters() {
   atualizarListaDeMangasPorStatus(filteredMangas);
 }
 
-
 document.getElementById("format-filter").addEventListener("change", applyFilters);
 document.getElementById("country-filter").addEventListener("change", applyFilters);
 document.getElementById('status-filter').addEventListener('change', applyFilters);
 document.getElementById("genres-filter").addEventListener("change", applyFilters);
-
-
-
 
 
 function atualizarListaDeMangasPorStatus(listaDeLeitura) {
@@ -366,7 +360,6 @@ async function addMangaToList() {
   const dataConclusao = document.getElementById('data-conclusao').value;
   const notas = document.getElementById('notas').value;
 
-  const nomeMangaEnglish = mediaGlobal.nomeMangaEnglish ;
   const nomeMangaRomaji  = mediaGlobal.nomeMangaRomaji  ;
 
 

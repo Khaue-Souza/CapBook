@@ -45,7 +45,6 @@ async function postData(data) {
         setTimeout(function() {
           window.location.href = "../views/login.html";
         }, 3000);
-        // window.location.href = "../views/login.html";
       }
     })
     .catch((error) => {

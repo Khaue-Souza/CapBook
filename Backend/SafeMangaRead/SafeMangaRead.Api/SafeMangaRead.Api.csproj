@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\AniListClass.cs" />
+    <Compile Remove="Controllers\AniListClassDTO.cs" />
     <Compile Remove="Controllers\AniListController - Cópia.cs" />
     <Compile Remove="Models\DetalhesListaDeLeitura.cs" />
   </ItemGroup>

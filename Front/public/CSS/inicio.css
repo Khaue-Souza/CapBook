@@ -48,8 +48,11 @@ nav a:hover {
   padding: 10px;
   width: auto;
   text-align: center;
-  background-color: #fff; /* Adicionado para unificar estilo com main de style.css */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adicionado para unificar estilo com main de style.css */
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px;
+  overflow: hidden; 
+  transition: transform 0.3s ease-in-out;
 }
 
 
@@ -114,15 +117,6 @@ body {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto; /* Centraliza o contêiner na página */
-}
-
-/* Estilos para os cartões de mangá */
-.manga-card {
-  background-color: #ffffff;
-  border-radius: 10px;
-  overflow: hidden; /* Garante que a imagem não ultrapasse os cantos arredondados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
 }
 
 .manga-card:hover {

@@ -114,7 +114,7 @@ function configurarEventListeners(manga) {
     }
 }
 
-var mangaIdDaLista;
+let mangaIdDaLista;
 
 async function verificarSeMangaEstaNaLista() {
     const usuarioId = globalUsuarioId;

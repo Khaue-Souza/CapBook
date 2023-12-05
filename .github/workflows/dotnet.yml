@@ -1,0 +1,60 @@
+name: .NET Core Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Convert to Full Clone
+      run: git fetch --unshallow
+    
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x' # Ajuste para a versão do .NET que você está usando
+
+    - name: Restore dependencies
+      run: dotnet restore ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj
+
+    - name: Build
+      run: dotnet build ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-restore --configuration Release
+
+    - name: Test with coverlet
+      run: dotnet test ./Backend/SafeMangaRead/SafeMangaReadTest/SafeMangaReadTest.csproj --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./
+
+    # Converter o formato de cobertura para cobertura.xml usando o ReportGenerator
+    - name: Install ReportGenerator tool
+      run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+    - name: Convert coverage format
+      run: reportgenerator "-reports:./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml" "-targetdir:coveragereport" "-reporttypes:Cobertura"
+
+
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      with:
+        args: >
+          -Dsonar.cs.opencover.reportsPaths=./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml
+          -Dsonar.coverage.exclusions=**/Front/**/*
+          -Dsonar.inclusions=**/Backend/**/*
+          -Dsonar-project.properties=./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml  
+          -Dsonar.exclusions=**/obj/**/*.*,**/*Migrations*.*,**/*.Tests.*,**/*.css/**/*,**/*.html/**/*
+          -Dsonar.projectKey=Khaue-Souza_SafeMangaRead
+          -Dsonar.organization=khaue-souza
+          -Dsonar.cfamily.build-wrapper-output=bw-output \
+          -Dsonar.host.url=https://sonarcloud.io
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        COVERAGE_PATH: ./Backend/SafeMangaRead/SafeMangaReadTest/coverage.opencover.xml
+        
+    # Exibir o conteúdo do arquivo de cobertura convertido
+    - name: Display converted coverage file
+      run: cat coveragereport/cobertura.xml

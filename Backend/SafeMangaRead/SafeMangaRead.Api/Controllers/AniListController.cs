@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -13,9 +9,18 @@ namespace SafeMangaRead.Controllers
     [ApiController]
     public class AnilistController : ControllerBase
     {
+
+        private readonly string UrlAniList;
+
+        public AnilistController(IConfiguration configuration)
+        {
+            UrlAniList = configuration["AniListApiUrl"];
+        }
+
         [HttpGet("search/{title}")]
         public async Task<IActionResult> SearchByTitle(string title)
         {
+
             var httpClient = new HttpClient();
 
             var query = @"
@@ -41,7 +46,7 @@ namespace SafeMangaRead.Controllers
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://graphql.anilist.co"),
+                RequestUri = new Uri(UrlAniList),
                 Content = new StringContent(
                     JsonConvert.SerializeObject(new
                     {
@@ -114,10 +119,11 @@ namespace SafeMangaRead.Controllers
                 }";
 
 
+
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://graphql.anilist.co"),
+                RequestUri = new Uri(UrlAniList),
                 Content = new StringContent(
                     JsonConvert.SerializeObject(new
                     {
@@ -176,7 +182,7 @@ namespace SafeMangaRead.Controllers
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("https://graphql.anilist.co"),
+                RequestUri = new Uri(UrlAniList),
                 Content = new StringContent(
                     JsonConvert.SerializeObject(new
                     {

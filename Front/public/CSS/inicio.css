@@ -2,13 +2,6 @@ main{
   height: auto;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
 header {
   background-color: #333;
   color: white;
@@ -55,13 +48,14 @@ nav a:hover {
   padding: 10px;
   width: auto;
   text-align: center;
-  background-color: #fff; /* Adicionado para unificar estilo com main de style.css */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adicionado para unificar estilo com main de style.css */
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px;
+  overflow: hidden; 
+  transition: transform 0.3s ease-in-out;
 }
 
-.manga-card img {
-  max-width: 100%;
-}
+
 
 footer {
   background-color: #333;
@@ -112,6 +106,7 @@ footer {
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
+  padding: 0;
   background-color: #f0f0f0;
 }
 
@@ -124,15 +119,6 @@ body {
   margin: 0 auto; /* Centraliza o contêiner na página */
 }
 
-/* Estilos para os cartões de mangá */
-.manga-card {
-  background-color: #ffffff;
-  border-radius: 10px;
-  overflow: hidden; /* Garante que a imagem não ultrapasse os cantos arredondados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
-
 .manga-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -143,6 +129,7 @@ body {
   width: 100%;
   display: block; /* Remove espaços abaixo da imagem */
   border-bottom: 1px solid #eaeaea; /* Linha separadora entre imagem e texto */
+  max-width: 100%;
 }
 
 /* Estilos para o link do título */

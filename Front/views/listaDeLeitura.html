@@ -60,6 +60,7 @@
             <div class="filter-group">
                 <h3>Formato</h3>
                 <select id="format-filter" onchange="applyFilters()">
+                    <option value=>Todos</option>
                     <option value="manga">Manga</option>
                     <option value="novel">Novel</option>
                     <option value="one_shot">ONE_SHOT</option>
@@ -70,7 +71,8 @@
                 </select>
 
                 <h3>Origem</h3>
-                <select id="country-filter" onchange="applyFilters()">
+                <select id="country-filter" placeholder="Origem" onchange="applyFilters()">
+                    <option value=>Todos</option>
                     <option value="Japão">Japão</option>
                     <option value="Coreia do Sul">Coreia do Sul</option>
                     <option value="China">China</option>
@@ -180,7 +182,7 @@
 
     </div>
 
-    <footer style="position: relative;">
+    <footer style="position: fixed;">
         <p>&copy; 2023 SafeMangaRead. Todos os direitos reservados.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

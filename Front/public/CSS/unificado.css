@@ -55,6 +55,7 @@ nav a {
     flex-wrap: wrap;
     justify-content: center;
     padding: 2rem;
+    margin-bottom: 80px;
 }
 
 .manga-card {
